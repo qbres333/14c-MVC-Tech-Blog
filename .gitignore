@@ -2,3 +2,4 @@ Assets
 node_modules
 .env
 desktop.ini
+.gitignore

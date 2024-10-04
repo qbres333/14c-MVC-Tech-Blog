@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tech Blog</title>
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    
+    <div class="flex-column">
+        <nav class="nav p-2">
+            <a href="#">Home</a>
+            <a href="#">Dashboard</a>
+            {{!-- conditionally render login and logout links --}}
+            {{#if logged_in}}
+            <a href="/logout">logout</a>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+        </nav>
+        <header class="blog-name display-flex p-2">The Tech Blog</header>
+        <main>
+            <div class="blog-post">
+                {{{body}}}
+            </div>
+        </main>
+
+        <footer></footer>
+    </div>
+    {{!-- render script if user is logged in --}}
+    <script src="/js/logout.js"></script>
 </body>
+
 </html>
