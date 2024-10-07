@@ -15,7 +15,7 @@ BlogPost.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        description: {
+        content: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -24,6 +24,7 @@ BlogPost.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
+        // link user to blog post by id
         user_id: {
             type: DataTypes.INTEGER,
             references: {
