@@ -23,3 +23,5 @@ const loginFormHandler = async (event) => {
         alert('Please enter both a username and password');
     }
 }
+
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
