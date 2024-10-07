@@ -2,6 +2,7 @@
     --blueGray: #a1b4d1;
     --black: black;
     --gray: rgb(116, 116, 116);
+    --white: white;
 }
 
 body {
@@ -15,7 +16,7 @@ body {
 }
 
 /* nav bar */
-nav {
+nav, header {
     background-color: var(--black);
     display: flex;
 }
@@ -41,13 +42,6 @@ a:hover {
     text-decoration: underline;
 }
 
-
-header {
-    background-color: var(--blueGray);
-    color: var(--black);
-
-}
-
 main {
     display: flex;
     flex-wrap: wrap;
@@ -57,16 +51,57 @@ main {
 
 
 /* header text */
-.blog-name {
+.tech-blog, .your-dash {
     box-shadow: 6px 6px 0px 0px var(--gray);
     border-radius: 8px;
     padding: 5px;
     font-size: 24px;
     font-weight: bolder;
+    background-color: var(--blueGray);
+    color: var(--black);
 
 }
 
-.blog-post {
+.blogpost {
     border-width: 2px;
+    border-color: var(--black);
+    padding: 5px;
+}
 
+.blogHeader {
+    height: 1em;
+    background-color: var(--black);
+    color: var(--gray);
+    
+}
+
+.blogContent {
+    height: 2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: var(--blueGray);
+    color: var(--black);
+    
+}
+
+.userBlogPost {
+    background-color: var(--gray);
+    color: var(--white);
+}
+
+/* align new-post-btn to bottom of main element, above the footer */
+.new-post-btn {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 5px;
+    position: absolute;
+    bottom: 40px;
+    margin: 0 auto;
+
+}
+
+
+footer {
+    height: 20px;
+    background-color: var(--black);
 }

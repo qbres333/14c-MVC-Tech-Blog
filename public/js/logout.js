@@ -5,7 +5,7 @@ const logout = async () => {
     });
 
     if(response.ok) {
-        // return the user to the root
+        // return the user to the homepage
         document.location.replace('/');
     } else {
         alert(response.statusText);

@@ -1,0 +1,27 @@
+{{!-- render dashboard header --}}
+<header class="display-flex p-2">
+    <div class="your-dash">Your Dashboard</div>
+</header>
+
+{{!-- dashboard shows all of the user's posts, and the option to create a new post --}}
+<div>
+    {{!-- current posts (if any) --}}
+    {{#if blogposts.length}}
+    <div class="row user-blog-list">
+        {{#each blogposts as |blogpost| }} 
+        <div class="row mb-1 mt-1 userBlogPost">
+            <div class="row justify-content-between">
+                <div>{{blogpost.title}}</div>
+                <div>{{format_date blogpost.dateCreated}}</div>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+    {{/if}}
+
+    {{!-- link to create new blog post --}}
+    <div class="new-post-btn">
+        <a href="/new-post">+ New Post</a>
+    </div>
+</div>
