@@ -68,7 +68,7 @@ main {
     padding: 5px;
 }
 
-.blogHeader {
+.blogHeader, .blogComments {
     height: 1em;
     background-color: var(--black);
     color: var(--gray);
