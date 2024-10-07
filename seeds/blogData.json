@@ -1,14 +1,17 @@
 [
   {
     "title": "Advantages of MVC architecture",
-    "content": "MVC helps organize and structure the code in a way that promotes separation of concerns, maintainability, and scalability in software development."
+    "content": "MVC helps organize and structure the code in a way that promotes separation of concerns, maintainability, and scalability in software development.",
+    "user_id": 3
   },
   {
     "title": "Using Sequelize & PostgreSQL",
-    "content": "Sequelize is an ORM (Object-Relational Mapping) library for Node.js that helps interact with relational databases. With PostgreSQL, it allows developers to write database queries using JavaScript instead of raw SQL. Sequelize simplifies database ops by mapping tables to JS objects and providing methods to manipulate these objects."
+    "content": "Sequelize is an ORM (Object-Relational Mapping) library for Node.js that helps interact with relational databases. With PostgreSQL, it allows developers to write database queries using JavaScript instead of raw SQL. Sequelize simplifies database ops by mapping tables to JS objects and providing methods to manipulate these objects.",
+    "user_id": 2
   },
   {
     "title": "Sequelize Transactions",
-    "content": "Transactions help ensure data integrity when creating compound, dependent SQL operations. Either all operations succeed, or they all fail. Key concepts include ACID, which stands for atomicity, consistency, isolation, and durability. Atomicity means that either all changes are applied, or none are. Consistency means a transaction must lease the db in a valid state after execution. Isolation means transactions are isolated from one another until completed. Durability means that once a transaction is committed, it persists even if a system failure occurs."
+    "content": "Transactions help ensure data integrity when creating compound, dependent SQL operations. Either all operations succeed, or they all fail. Key concepts include ACID, which stands for atomicity, consistency, isolation, and durability. Atomicity means that either all changes are applied, or none are. Consistency means a transaction must lease the db in a valid state after execution. Isolation means transactions are isolated from one another until completed. Durability means that once a transaction is committed, it persists even if a system failure occurs.",
+    "user_id": 1
   }
 ]
