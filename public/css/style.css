@@ -87,6 +87,7 @@ main {
 .userBlogPost, .update-btn, .delete-btn {
     background-color: var(--gray);
     color: var(--white);
+    /* set button width  */
 }
 
 .new-post-header, .new-post-btn {
