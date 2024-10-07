@@ -84,7 +84,7 @@ main {
     
 }
 
-.userBlogPost {
+.userBlogPost, .update-btn, .delete-btn {
     background-color: var(--gray);
     color: var(--white);
 }
