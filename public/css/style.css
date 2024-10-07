@@ -89,10 +89,12 @@ main {
     color: var(--white);
 }
 
-/* align new-post-btn to bottom of main element, above the footer */
-.new-post-btn {
+.new-post-header, .new-post-btn {
     background-color: var(--black);
     color: var(--white);
+}
+/* align new-post-btn to bottom of main element, above the footer */
+.new-post-btn {    
     padding: 5px;
     position: absolute;
     bottom: 40px;
