@@ -3,6 +3,7 @@
     --black: black;
     --gray: rgb(116, 116, 116);
     --white: white;
+    --aqua: aqua;
 }
 
 body {
@@ -103,6 +104,10 @@ main {
 
 }
 
+.form-input {
+    border-color: var(--aqua);
+    border-width: 2px;
+}
 
 footer {
     height: 20px;
