@@ -1,4 +1,4 @@
-// function to handle new posts (saves them to the db)
+// function to handle form submission (saves new post to the db)
 const newPostHandler = async (event) => {
   event.preventDefault();
 

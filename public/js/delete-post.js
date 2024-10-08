@@ -8,6 +8,8 @@ const deletePostHandler = async (event) => {
     });
 
     if (response.ok) {
+      /* if request is successful, redirect to the user's dashboard,
+      which shows the updated post list */
       document.location.replace('/dashboard');
     } else {
       alert('Failed to delete blog post');

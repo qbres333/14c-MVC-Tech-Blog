@@ -2,6 +2,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// '/api/user' endpoint
+
 // POST - '/' route, create new user
 router.post('/', async (req, res) => {
     try {
@@ -13,8 +15,9 @@ router.post('/', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.status(200).json(userData)
+            res.status(200).json();
         })
+        
     } catch (err) {
         res.status(400).json(err);
     }
@@ -45,7 +48,7 @@ router.post('/login', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.json({ user: userData, message: 'You are now logged in!'});
+            res.json({ user: userData, message: 'You are now logged in!' });
         })
     } catch(err) {
         res.status(400).json(err);
@@ -56,8 +59,7 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
-            res.redirect('/');
+            res.status(200).end();
         });
     } else {
         res.status(400).json({ message: 'You must be logged in to log out'});
