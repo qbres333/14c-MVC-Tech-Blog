@@ -1,5 +1,5 @@
 :root {
-    --blueGray: #a1b4d1;
+    --blueGray: #c7ddff;
     --black: black;
     --gray: rgb(116, 116, 116);
     --white: white;
@@ -11,7 +11,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     justify-content: flex-start;
     background-color: var(--blueGray);
 }
@@ -54,7 +54,9 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
+    /* flex: 1; */
     margin: 30px 50px 30px 50px;
+    box-sizing: content-box;
 }
 
 
@@ -73,37 +75,45 @@ main {
 }
 
 .blogpost {
-    border-width: 2px;
+    border: 1px solid var(--black);
+    border-width: 3px;
     border-color: var(--black);
-    padding: 5px;
+    border-radius: 5px;
+   
 }
 
 .post-header, .post-comments, .comment-header {
-    height: 1em;
+    height: 1.5em;
+    font-size: 24px;
     background-color: var(--black);
-    color: var(--gray);
+    color: var(--blueGray);
     
 }
 
 .post-content {
-    height: 2em;
+    height: 68px;
+    
+    /* text wrapping styling */
+    
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
     background-color: var(--blueGray);
     color: var(--black);
     padding: 8px;
+    font-size: 20px;
     
 }
 
 .post-preview, .update-btn, .delete-btn {
     background-color: var(--gray);
-    color: var(--white);
+    color: var(--blueGray);
     /* set button width  */
 }
 
 .post-header, .post-btn {
     background-color: var(--black);
-    color: var(--white);
+    color: var(--blueGray);
 }
 /* align new-post-btn to bottom of main element, above the footer */
 .post-btn {    
@@ -114,15 +124,20 @@ main {
 
 }
 
-.form {
+/* .form {
 
-}
+} */
+
 .form-input {
     border-color: var(--aqua);
     border-width: 2px;
 }
 
 footer {
-    height: 20px;
+    height: 100px;
     background-color: var(--black);
+    /* position: fixed; */
+    /* bottom: 0; */
+    /* flex: 1; */
+
 }
