@@ -9,8 +9,8 @@
     {{#if blogposts.length}}
     <div class="row user-blog-list">
         {{#each blogposts as |blogpost| }} 
-        <div class="row mb-1 mt-1 userBlogPost">
-            <a href="/blogpost/{{blogpost.id}}">
+        <div class="row mb-1 mt-1 post-preview">
+            <a href="/dashboard/{{blogpost.id}}">
                 <div class="row justify-content-between">
                     <div>{{blogpost.title}}</div>
                     <div>{{format_date blogpost.dateCreated}}</div>
