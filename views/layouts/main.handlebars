@@ -12,17 +12,17 @@
 <body>
     <div class="flex-column">
         <nav class="nav p-2">
-            <a href="/" class="homepage">Home</a>
-            <a href="/dashboard" class="dashboard">Dashboard</a>
+            <a href="partials/homepage" class="homepage">Home</a>
+            <a href="partials/dashboard" class="dashboard">Dashboard</a>
             {{!-- conditionally render login and logout links --}}
             {{#if logged_in}}
-            <a href="/logout">Logout</a>
+            <a href="partials/logout">Logout</a>
             {{else}}
-            <a href="/login">Login</a>
+            <a href="partials/login">Login</a>
             {{/if}}
         </nav>
         {{!-- render homepage header --}}
-        <header class="display-flex p-2">
+        <header class="d-flex p-2">
             <div class="tech-blog">The Tech Blog</div>
         </header>
 

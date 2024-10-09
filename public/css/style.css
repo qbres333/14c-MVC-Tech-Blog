@@ -87,22 +87,15 @@ main {
     font-size: 24px;
     background-color: var(--black);
     color: var(--blueGray);
-    
+    align-items: center;
 }
 
 .post-content {
-    height: 68px;
-    
-    /* text wrapping styling */
-    
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     background-color: var(--blueGray);
     color: var(--black);
     padding: 8px;
     font-size: 20px;
-    
+
 }
 
 .post-preview, .update-btn, .delete-btn {

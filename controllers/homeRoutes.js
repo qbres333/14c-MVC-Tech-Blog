@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 });
 
 // view specific post; add withAuth so only logged in users can post comments
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/posts/:id', withAuth, async (req, res) => {
     try {
         const blogData = await BlogPost.findByPk(req.params.id, {
             include: [

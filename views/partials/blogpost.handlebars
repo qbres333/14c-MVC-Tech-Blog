@@ -1,18 +1,18 @@
 {{!-- single post has comments listed beneath --}}
 <div class="row mt-1">
-    <div class="post-header justify-content-between">
+    <div class="col-md-12 d-flex post-header justify-content-between">
         <h3>{{blogpost.title}}</h3>
         <div>Posted by {{blogPost.user_id}} on {{format_date blogPost.dateCreated}}</div>
     </div>
-    <div class="post-content">
+    <div class="col-md-12 post-content">
         <div>{{content}}</div>
     </div>
 
-    {{!-- show associated comments --}}
+    {{!-- conditionally show associated comments --}}
     {{#if blogPost.comment.length}}
-    <div class="row mt-1 comment-list">
+    <div class="col-md-12 mt-1 comment-list">
         {{#each comments as |comment|}}
-        <div class="row mb-1 mb-1 comment-content">
+        <div class="col-md-12 mb-3 mb-1 comment-content">
             <h3 class="content-header"></h3>
             <div>{{blogPost.comment}}</div>
             <div>{{blogPost.comment.user_id}}, {{format_date comment.dateCreated}}</div>
