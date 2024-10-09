@@ -1,7 +1,7 @@
 // create router instance, import models, utils
 const router = require('express').Router();
-const { BlogPost, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const { BlogPost, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // '/api/dashboard' endpoint
 
@@ -82,4 +82,6 @@ router.delete('/:id', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
+
+module.exports = router;

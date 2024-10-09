@@ -16,31 +16,38 @@ body {
     background-color: var(--blueGray);
 }
 
-/* nav bar */
+/* nav {
+    padding: 0px 0px 20px 40px;
+} */
 nav, header {
     background-color: var(--black);
     display: flex;
+    font-size: 30px;
 }
 
 /* nav bar links */
 nav a {
     color: var(--blueGray);
-    padding: 10px;
+    margin-left: 40px;
+    
 }
 
 /* links */
-a {
+a, a:hover, a:visited {
     text-decoration: none;
+    color: var(--blueGray);
+    padding: 10px;
+    
 }
 
 /* visited link */
-a:visited {
-    color: inherit;
-}
+/* a:visited {
+    
+} */
 
 a:hover {
-    font-weight: 800;
-    text-decoration: underline;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 main {
@@ -55,11 +62,13 @@ main {
 .tech-blog, .your-dash {
     box-shadow: 6px 6px 0px 0px var(--gray);
     border-radius: 8px;
-    padding: 5px;
-    font-size: 24px;
-    font-weight: bolder;
+    padding: 5px 20px;
+    font-size: 45px;
+    font-weight: 900;
     background-color: var(--blueGray);
     color: var(--black);
+    margin: 0px 0px 20px 40px;
+    width: auto;
 
 }
 

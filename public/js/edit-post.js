@@ -7,7 +7,7 @@ const updatePostHandler = async (event) => {
 
     const id = event.target.getAttribute('id');
 
-    const response = await fetch(`/api/blog/${id}`, {
+    const response = await fetch(`/api/dashboard/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ title, content }),
       headers: { 'Content-type': 'application/json' },

@@ -1,9 +1,9 @@
 // create router instance, import models, utils
 const router = require('express').Router();
-const { BlogPost, User, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { BlogPost, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-// '/api/home' endpoint
+// homepage endpoint
 
 // show all blog posts, joined with user data
 router.get('/', async (req, res) => {
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         // serialize the data so the template can read it
         const blogposts = blogData.map((blogpost) => blogpost.get({ plain: true }));
         // pass data and session flag into template; render homepage view
-        res.render('homepage', {
+        res.render('partials/homepage', {
             blogposts,
             logged_in: req.session.logged_in
         });
@@ -48,7 +48,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
         const blogpost = blogData.get({ plain: true });
         // render blogpost view
-        res.render('blogpost', {
+        res.render('partials/blogpost', {
             ...blogpost,
             logged_in: true
         });
@@ -58,3 +58,4 @@ router.get('/:id', withAuth, async (req, res) => {
     }
 })
 
+module.exports = router;
