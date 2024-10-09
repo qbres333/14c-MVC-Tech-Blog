@@ -22,7 +22,7 @@ const sess = {
     secret: 'secret',
     // configure the session cookie
     cookie: {
-        maxAge: 3600000,
+        maxAge: 3600000, //60 minutes
         httpOnly: true, //prevents cookie from being accessed by JS (XSS)
         secure: false, //data can be sent over http and https
         sameSite: 'strict',

@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { BlogPost, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// homepage endpoint
+// '/' homepage endpoint
 
 // show all blog posts, joined with user data
 router.get('/', async (req, res) => {
@@ -56,6 +56,30 @@ router.get('/posts/:id', withAuth, async (req, res) => {
     } catch(err) {
         res.status(500).json(err);
     }
+})
+
+
+// route to render dashboard
+router.get('/dashboard', (req, res) => {
+
+    if (!req.session.logged_in) {
+        // .redirect takes URL parameter
+        res.redirect('partials/login'); //redirect to login page if not logged in
+        return;
+    }
+    // .render takes a view parameter (no / )
+    res.render('partials/dashboard');
+});
+
+// route to direct user to the login page
+router.get('/login', (req, res) => {
+    // if user is logged in, redirect to the dashboard view
+    if (req.session.logged_in) {
+        res.redirect('partials/dashboard');
+        return;
+    }
+    // if user is not logged in, redirect to the login view
+    res.render('partials/login');
 })
 
 module.exports = router;

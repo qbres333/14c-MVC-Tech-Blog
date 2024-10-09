@@ -13,7 +13,7 @@ router.get('/', withAuth, async (req, res) => {
           where: {
             user_id: req.session.user_id,
           },
-          include: [{ model: User }],
+          include: [{ model: User }], //add Comment model if needed
         });
         // serialize the data so the template can read it
         const userPosts = blogData.map((blogpost) => blogpost.get({ plain: true }));

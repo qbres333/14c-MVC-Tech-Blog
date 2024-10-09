@@ -2,7 +2,7 @@
 <div class="row mt-1">
     <h2>Login</h2>
 
-    <form class="form login-form">
+    <form class="form login-form" action="/login" method="POST">
         <div class="form-group">
             <label for="username-login">Username:</label>
             <input class="form-input" type="text" id="username-login" />
@@ -21,4 +21,5 @@
     
 </div>
 {{!-- script to send login credentials to API endpoint --}}
-<script src="../../public/js/login.js"></script>
+{{!-- <script src="../../public/js/login.js"></script> --}}
+<script src="./js/login.js"></script>

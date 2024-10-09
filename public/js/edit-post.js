@@ -14,7 +14,7 @@ const updatePostHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/api/dashboard');
     } else {
       alert('Failed to update blog post');
     }

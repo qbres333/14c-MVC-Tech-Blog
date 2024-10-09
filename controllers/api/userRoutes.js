@@ -4,13 +4,10 @@ const { User } = require('../../models');
 
 // '/api/user' endpoint
 
-// POST - '/' route, create new user
+// POST - '/signup' route, create new user
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create({
-            username: req.body.username,
-            password: req.body.password,
-        });
+        const userData = await User.create(req.body);
 
         req.session.save(() => {
             req.session.user_id = userData.id;
@@ -23,7 +20,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-// POST - '/login' route
+// POST - '/login' route to evaluate form data
 router.post('/login', async (req, res) => {
     try {
         // find user in db by username
@@ -53,7 +50,16 @@ router.post('/login', async (req, res) => {
     } catch(err) {
         res.status(400).json(err);
     }
-})
+});
+
+// GET route for /login to render the view
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        return res.redirect('/'); //redirect to home if logged in
+    }
+    // render login.handlebars view
+    res.render('partials/login');
+});
 
 // POST - '/logout' route, redirect to home
 router.post('/logout', (req, res) => {

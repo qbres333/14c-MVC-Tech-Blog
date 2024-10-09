@@ -7,7 +7,7 @@ const signupFormHandler = async (event) => {
 
   // if both fields have values, send POST request to API endpoint (save user data)
   if (username && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/user/', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-type': 'application/json' },
@@ -15,7 +15,7 @@ const signupFormHandler = async (event) => {
 
     if (response.ok) {
       // if request is successful, redirect to the dashboard
-      document.location.replace('/dashboard');
+      document.location.replace('/api/dashboard');
     } else {
       alert(response.statusText);
     }
