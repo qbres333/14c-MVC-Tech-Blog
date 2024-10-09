@@ -13,7 +13,8 @@ Comment.init(
       autoIncrement: true,
     },
     comment: {
-      type: DataTypes.STRING,
+      // type changed to TEXT because STRING has a 255-character limit
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     dateCreated: {
