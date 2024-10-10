@@ -14,8 +14,13 @@
                 <label for="password-login" class="form-label">Password:</label>
                 <input class="form-input form-control" type="password" id="password-login" />
             </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" onclick="toggleLoginPassword()" id="toggle-pass">
+                <label class="form-check-label toggle-pass" for="toggle-pass">Show Password</label>
+            </div>
+
             <div class="d-grid gap-3 mb-3">
-                <button class="btn btn-secondary w-100" type="button" >Log In!</button>
+                <button class="btn btn-secondary w-100" type="submit" >Log In!</button>
             </div>
             <div class="signup-link">
                 <a href="/api/user/signup" class="link-dark">Sign up instead</a>
@@ -25,5 +30,6 @@
 </div>
 {{!-- script to send login credentials to API endpoint --}}
 <script src="/js/login.js"></script>
-{{!-- <script src="./js/login.js"></script> --}}
+{{!-- script to toggle password visibility --}}
+<script src="/js/showPassword.js"></script>
 

@@ -151,7 +151,9 @@ label {
     border-width: 2px;
     
 }
-
+.toggle-pass {
+    font-size: 16px;
+}
 /* .btn {
     display: block;
     align-items: center;

@@ -18,14 +18,15 @@ const loginFormHandler = async (event) => {
             // if request is successful, redirect to the user's dashboard (route)
             document.location.replace('/dashboard');
           } else {
-            alert(response.statusText);
+            alert('Login failed. Please check your spelling, or sign up to The Tech Blog.')
+            console.error(response.statusText);
           }
         } catch (err) {
             alert('An error occurred. Please try again.');
             console.error(err);
         }
 
-    } else{
+    } else {
         alert('Please enter both a username and password');
     }
 }
