@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            // if request is successful, redirect to the user's dashboard
+            // if request is successful, redirect to the user's dashboard (route)
             document.location.replace('/dashboard');
         } else {
             alert(response.statusText);

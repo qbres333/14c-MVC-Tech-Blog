@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         // serialize the data so the template can read it
         const blogposts = blogData.map((blogpost) => blogpost.get({ plain: true }));
         // pass data and session flag into template; render homepage view
-        res.render('partials/homepage', {
+        res.render('homepage', {
             blogposts,
             logged_in: req.session.logged_in
         });
@@ -48,7 +48,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
 
         const blogpost = blogData.get({ plain: true });
         // render blogpost view
-        res.render('partials/blogpost', {
+        res.render('blogpost', {
             ...blogpost,
             logged_in: true
         });
@@ -64,22 +64,22 @@ router.get('/dashboard', (req, res) => {
 
     if (!req.session.logged_in) {
         // .redirect takes URL parameter
-        res.redirect('partials/login'); //redirect to login page if not logged in
+        res.redirect('/login'); //redirect to login page if not logged in
         return;
     }
     // .render takes a view parameter (no / )
-    res.render('partials/dashboard');
+    res.render('dashboard');
 });
 
 // route to direct user to the login page
 router.get('/login', (req, res) => {
     // if user is logged in, redirect to the dashboard view
     if (req.session.logged_in) {
-        res.redirect('partials/dashboard');
+        res.redirect('/dashboard');
         return;
     }
     // if user is not logged in, redirect to the login view
-    res.render('partials/login');
+    res.render('login');
 })
 
 module.exports = router;

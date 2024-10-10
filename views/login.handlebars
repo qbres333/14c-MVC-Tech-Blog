@@ -1,25 +1,33 @@
 {{!-- login form (BootStrap) --}}
-<div class="row mt-1">
-    <h2>Login</h2>
+<div class="row d-flex mt-1 login">
+    <div class="col-12 d-flex login-header ">  <!-- flex row -->
+        <h2 class="p-1">Login</h2>
+    </div>
 
-    <form class="form login-form" action="/login" method="POST">
-        <div class="form-group">
-            <label for="username-login">Username:</label>
-            <input class="form-input" type="text" id="username-login" />
-        </div>
-        <div class="form-group"></div>
-            <label for="password-login">Password:</label>
-            <input class="form-input" type="password" id="password-login" />
-        </div>
-        <div class="form-group"></div>
-            <button class="btn btn-secondary" type="submit">Log In!</button>
-        </div>
-        <div>
-            <a href="/signup">Sign up instead</a>
-        </div>
-    </form>
+    <div class="col-12 mb-3 mt-3">  <!-- flex row -->
+        <form class="form login-form">
+            <div class="form-group">
+                <label for="username-login" class="form-label">Username:</label>
+                <input class="form-input form-control" type="text" id="username-login" />
+            </div>
+            <div class="form-group">
+                <label for="password-login" class="form-label">Password:</label>
+                <input class="form-input form-control" type="password" id="password-login" />
+            </div>
+            <div class="d-grid gap-3 mb-3">
+                <button class="btn btn-secondary w-100" type="button" >Log In!</button>
+            </div>
+            <div class="signup-link">
+                <a href="/signup" class="link-dark">Sign up instead</a>
+            </div>
+
+        </form>
+        
+     
+    </div>  
     
 </div>
 {{!-- script to send login credentials to API endpoint --}}
 {{!-- <script src="../../public/js/login.js"></script> --}}
 <script src="./js/login.js"></script>
+

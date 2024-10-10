@@ -58,7 +58,7 @@ router.get('/login', (req, res) => {
         return res.redirect('/'); //redirect to home if logged in
     }
     // render login.handlebars view
-    res.render('partials/login');
+    res.render('login');
 });
 
 // POST - '/logout' route, redirect to home

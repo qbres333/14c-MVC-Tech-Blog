@@ -8,3 +8,6 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
 
 Req.user guidance (dashRoutes):
 https://stackoverflow.com/questions/20202980/express-js-passport-js-where-is-req-user-stored
+
+Bootstrap:
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
