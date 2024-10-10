@@ -111,7 +111,7 @@ label {
 .post-header,
 .post-comments,
 .comment-header {
-    height: 1.5em;
+    height: auto;
     /* font-size: 24px; */
 }
 
@@ -128,20 +128,14 @@ label {
 .delete-btn {
     background-color: var(--gray);
     color: var(--blueGray);
-    /* set button width  */
 }
 
-.post-btn {
-    background-color: var(--black);
-    color: var(--blueGray);
-}
 
 /* align new-post-btn to bottom of main element, above the footer */
-.post-btn {
-    padding: 5px;
+.new-post-btn {
+    /* padding: 5px; */
     position: absolute;
-    bottom: 40px;
-    /* margin: 0 auto; */
+    bottom: 100px;
 
 }
 

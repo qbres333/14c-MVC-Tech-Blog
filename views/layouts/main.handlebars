@@ -13,7 +13,7 @@
     <div class="flex-column">
         <nav class="nav p-2">
             {{!-- hrefs are routes --}}
-            <a href="/" class="homepage">Home</a> <!--  working! -->
+            <a href="/" class="homepage">Home</a>
             <a href="/dashboard" class="dashboard">Dashboard</a>
             {{!-- conditionally render login and logout links --}}
             {{#if logged_in}}
@@ -24,7 +24,15 @@
         </nav>
         {{!-- render homepage header --}}
         <header class="d-flex p-2">
-            <div class="tech-blog">The Tech Blog</div>
+            {{#if logged_in}}
+                {{#if '/'}}
+                <div class="tech-blog">The Tech Blog</div>
+                {{else}}
+                <div class="your-dash">Your Dashboard</div>
+                {{/if}}
+            {{else}}
+            <div class="your-dash">Your Dashboard</div>
+            {{/if}}
         </header>
 
     </div>
@@ -37,7 +45,7 @@
 
     {{!-- render script if user is logged in --}}
     {{#if logged_in}}
-        <script src="../../public/js/logout.js"></script>
+        <script src="/js/logout.js"></script>
     {{/if}}
     <footer></footer>
 

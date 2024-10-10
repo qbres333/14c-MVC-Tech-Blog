@@ -1,33 +1,29 @@
-{{!-- render dashboard header --}}
-<header class="display-flex p-2">
-    <div class="your-dash">Your Dashboard</div>
-</header>
-
 {{!-- dashboard shows all of the user's posts, and the option to create a new post --}}
-<div class="row mt-1">
-    {{!-- current posts (if any) --}}
-    {{#if blogposts.length}}
-    <div class="row user-blog-list">
-        {{#each blogposts as |blogpost| }} 
-        <div class="row mb-1 mt-1 post-preview">
-            <a href="partials/dashboard/{{blogpost.id}}">
-                <div class="row justify-content-between">
-                    <div>{{blogpost.title}}</div>
-                    <div>{{format_date blogpost.dateCreated}}</div>
-                </div>
-            </a>
+
+{{!-- ------------ refactor code from homepage ---------- --}}
+{{#if blogposts.length}}
+
+    {{#each blogposts as |blogpost| }} 
+    <div class="row mb-3 mt-1 blogpost">
+        <div class="col-md-12 d-flex post-preview justify-content-between">
+            <a href="/posts/{{blogpost.id}}">{{blogpost.title}}</a>
+            <div>Posted by {{blogpost.user.username}} on {{format_date blogpost.dateCreated}}</div>
         </div>
-        {{/each}}
 
     </div>
-    {{/if}}
+    {{/each}}
 
-    {{!-- link to create new blog post --}}
-    <div class="new-post-btn">
-        <a href="/new-post">+ New Post</a>
-    </div>
+{{/if}}
+
+<div class="d-grid gap-3 mb-3 col-3 mx-auto new-post-btn">
+    <button class="btn btn-dark" type="submit">+ New Post</button>
 </div>
-{{!-- script to render the user's dash with their blog posts --}}
-<script src="./js/dashboard.js"></script>
 
-{{!-- C:\Users\qbres\bootcamp\14c-MVC-Tech-Blog\public\js\dashboard.js --}}
+
+{{!-- -------------------scripts---------------------- --}}
+<script src="/js/dashboard.js"></script>
+
+{{!-- script to render new post view --}}
+<script src="/js/new-post.js"></script>
+
+<script src="/js/logout.js"></script>

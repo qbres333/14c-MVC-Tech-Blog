@@ -13,7 +13,7 @@ router.get('/', withAuth, async (req, res) => {
           where: {
             user_id: req.session.user_id,
           },
-          include: [{ model: User }], //add Comment model if needed
+          include: [{ model: User }, {model: Comment}], //add Comment model if needed
         });
         // serialize the data so the template can read it
         const userPosts = blogData.map((blogpost) => blogpost.get({ plain: true }));
@@ -83,5 +83,22 @@ router.delete('/:id', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// POST - '/logout' route
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(200).end();
+        });
+    } else {
+        res.status(400).json({ message: 'You must be logged in to log out'});
+    }
+});
+
+//render homepage when logged out
+router.get('/logout', (req, res) => {
+    res.render('homepage');
+});
+
 
 module.exports = router;

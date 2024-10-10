@@ -17,6 +17,15 @@ const PORT = process.env.PORT || 3001;
 // create handlebars engine with helpers
 const hbs = exphbs.create({ helpers });
 
+// // create a custom helper to conditionally render hbs view header
+// hbs.registerHelper('renderHeader', function(viewName, logged_in) {
+//     if(view ==="dashboard" && logged_in) {
+//        return viewPath.include(viewName);
+     
+//     }
+// })
+
+
 const sess = {
     // secret key used to sign/encrypt session cookies
     secret: 'secret',

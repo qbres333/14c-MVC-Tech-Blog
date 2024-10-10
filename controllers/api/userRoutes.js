@@ -66,7 +66,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// POST - '/logout' route, redirect to home
+// POST - '/logout' route
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
@@ -78,8 +78,9 @@ router.post('/logout', (req, res) => {
 });
 
 //render homepage when logged out
-router.get('logout', (req, res) => {
-    res.render('homepage');
-})
+router.get('/logout', (req, res) => {
+        res.render('homepage');
+    
+});
 
 module.exports = router;
