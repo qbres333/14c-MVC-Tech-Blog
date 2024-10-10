@@ -4,7 +4,12 @@ const { User } = require('../../models');
 
 // '/api/user' endpoint
 
-// POST - '/signup' route, create new user
+// render signup view
+router.get('/signup', (req, res) => {
+        res.render('signup');
+})
+
+// POST - '/signup' route, send new user info to db
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -55,7 +60,7 @@ router.post('/login', async (req, res) => {
 // GET route for /login to render the view
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        return res.redirect('/'); //redirect to home if logged in
+        return res.redirect('/dashboard'); //redirect to dash if logged in
     }
     // render login.handlebars view
     res.render('login');
@@ -71,5 +76,10 @@ router.post('/logout', (req, res) => {
         res.status(400).json({ message: 'You must be logged in to log out'});
     }
 });
+
+//render homepage when logged out
+router.get('logout', (req, res) => {
+    res.render('homepage');
+})
 
 module.exports = router;
