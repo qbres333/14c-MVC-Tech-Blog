@@ -16,15 +16,10 @@ const seedDatabase = async () => {
         // return newly created user records, stored in users array
         returning: true,
     });
-    // crea
+    // create blogpost table
     for (const blog of blogData) {
-        // match user to blog post by user id
-        // const user = users.find(u => u.id === blog.user_id);
-        // if (user) {
             await BlogPost.create({
               ...blog,
-            //   randomly assign user to blog post
-              user_id: users[Math.floor(Math.random() * users.length)].id,
             });
         // }
     }

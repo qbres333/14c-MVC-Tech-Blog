@@ -14,6 +14,10 @@
 
 // set 3rd nav link to "Logout"; shows "Login" when the user is logged in
 thirdNav = document.querySelector('nav a:nth-child(3)');
-
-thirdNav.setAttribute('href', '/logout');
+thirdNav.setAttribute('href', '/api/user/logout');
 thirdNav.textContent = 'Logout';
+
+//set header to "Your Dashboard"; shows "The Tech Blog" when the user is logged in
+headerDiv =document.querySelector('header div');
+headerDiv.setAttribute('class', 'your-dash');
+headerDiv.textContent = 'Your DashBoard';

@@ -15,5 +15,3 @@ https://getbootstrap.com/docs/5.0/getting-started/introduction/
 Toggle Password Visibility:
 https://www.w3schools.com/howto/howto_js_toggle_password.asp
 
-Customer Handlebars helpers:
-https://handlebarsjs.com/guide/#custom-helpers

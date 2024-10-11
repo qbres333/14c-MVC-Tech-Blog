@@ -95,8 +95,8 @@ router.post('/logout', (req, res) => {
 });
 
 //render homepage when logged out
-router.get('/logout', (req, res) => {
-    res.render('homepage');
-});
+// router.get('/logout', (req, res) => {
+//     res.render('homepage');
+// });
 
 module.exports = router;

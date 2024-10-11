@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.status(200).json();
+            res.status(200).json(userData);
         })
         
     } catch (err) {
@@ -78,9 +78,9 @@ router.post('/logout', (req, res) => {
 });
 
 //render homepage when logged out
-router.get('/logout', (req, res) => {
-        res.render('homepage');
+// router.get('/logout', (req, res) => {
+//         res.render('homepage');
     
-});
+// });
 
 module.exports = router;

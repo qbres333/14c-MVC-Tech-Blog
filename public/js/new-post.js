@@ -21,12 +21,12 @@ const newPostHandler = async (event) => {
       which shows the new post */
         document.location.replace('/dashboard');
       } else {
-        alert('Could not create new post. Please try again.');
+        alert('Failed to create new post. Please try again.');
         console.error(response.statusText);
       }
     } catch (err) {
       alert('An error occurred. Please try again.');
-      console.error(err);
+      console.error(response.statusText);
     }
 
   } else {

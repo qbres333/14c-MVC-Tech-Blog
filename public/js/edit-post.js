@@ -7,6 +7,7 @@ const updatePostHandler = async (event) => {
 
     const id = event.target.getAttribute('id');
 
+  try {
     const response = await fetch(`/api/dashboard/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ title, content }),
@@ -17,7 +18,13 @@ const updatePostHandler = async (event) => {
       document.location.replace('/api/dashboard');
     } else {
       alert('Failed to update blog post');
+      console.error(response.statusText);
     }
+  } catch (err) {
+      alert('An error occurred. Please try again.');
+      console.error(err);
+  }
+
 }
 // update bloglist on dashboard upon submit
 document
