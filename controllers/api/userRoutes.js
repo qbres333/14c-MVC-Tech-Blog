@@ -4,20 +4,15 @@ const { User } = require('../../models');
 
 // '/api/user' endpoint
 
-// render signup view
-router.get('/signup', (req, res) => {
-        res.render('signup');
-})
-
 // POST - '/signup' route, send new user info to db
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create(req.body);
 
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.status(200).json(userData);
+            res.status(200).json({ user: userData, logged_in: true });
         })
         
     } catch (err) {
@@ -44,27 +39,20 @@ router.post('/login', async (req, res) => {
         const validPassword = await userData.checkPassword(req.body.password);
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect username or password, please try again' })
+            return;
         }
 
         // if user data is correct, log in and save session
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.json({ user: userData, message: 'You are now logged in!' });
+            res.json({ user: userData, logged_in: true });
         })
     } catch(err) {
         res.status(400).json(err);
     }
 });
 
-// GET route for /login to render the view
-router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
-        return res.redirect('/dashboard'); //redirect to dash if logged in
-    }
-    // render login.handlebars view
-    res.render('login');
-});
 
 // POST - '/logout' route
 router.post('/logout', (req, res) => {
@@ -73,14 +61,9 @@ router.post('/logout', (req, res) => {
             res.status(200).end();
         });
     } else {
-        res.status(400).json({ message: 'You must be logged in to log out'});
+        res.status(400).end();
     }
 });
 
-//render homepage when logged out
-// router.get('/logout', (req, res) => {
-//         res.render('homepage');
-    
-// });
 
 module.exports = router;

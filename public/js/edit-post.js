@@ -5,7 +5,7 @@ const updatePostHandler = async (event) => {
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
 
-    const id = event.target.getAttribute('id');
+    const id = event.target.getAttribute('data-id');
 
   try {
     const response = await fetch(`/api/dashboard/${id}`, {
@@ -15,7 +15,7 @@ const updatePostHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/api/dashboard');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to update blog post');
       console.error(response.statusText);

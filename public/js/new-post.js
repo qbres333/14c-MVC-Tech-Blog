@@ -9,8 +9,8 @@ const newPostHandler = async (event) => {
   // if both fields have values, send POST request to API endpoint
   if (title && content) {
     try {
-      const response = await fetch('/api/dashboard', {
-        //endpoint is user dashboard
+      //endpoint is user dashboard
+      const response = await fetch('/api/dashboard/new-post', {
         method: 'POST',
         body: JSON.stringify({ title, content }),
         headers: { 'Content-type': 'application/json' },

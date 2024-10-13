@@ -1,8 +1,12 @@
+<div class="row justify-content-end mt-3 mb-3 current-user"></div>
+    <div>Logged in as: {{name}}</div>
+</div>
+
 <div class="row mt-1">
     
     {{!-- show title and content fields --}}
      <h3 class="post-header">Edit Post</h3>
-     <form class="form edit-post-form" id="{{id}}"></form>
+     <form class="form edit-post-form"></form>
         <div class="form-group">
             <label for="post-title">Title:</label>
             <input class="form-input" type="text" id="post-title" name="post-title" value="{{title}}"/>
@@ -12,13 +16,13 @@
             <input class="form-input" type="text" id="post-content" name="post-content" value="{{content}}"/>
         </div>
     </form>
-    {{!-- click update post  --}}
-    <div class="update-btn">
-        <a href ="/dashboard">Update Post</a>
+    {{!--  update post  --}}
+    <div class="d-grid gap-3 mb-3 update-btn">
+        <button class="btn btn-secondary w-100" type="submit" data-id="{{id}}" >Update Post</button>
     </div>
-    {{!-- click delete --}}
-    <div class="delete-btn">
-        <a href ="/dashboard">Delete</a>
+    {{!--  delete post  --}}
+    <div class="d-grid gap-3 mb-3 delete-btn">
+        <button class="btn btn-secondary w-100" type="submit" data-id="{{id}}">Delete</button>
     </div>
 
 </div>

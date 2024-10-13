@@ -59,8 +59,10 @@ main {
     box-sizing: content-box;
 }
 
+.current-user {
+    font-weight: 600;
+}
 
-/* header text */
 .tech-blog,
 .your-dash {
     box-shadow: 6px 6px 0px 0px var(--gray);
@@ -132,14 +134,24 @@ label {
 
 
 /* align new-post-btn to bottom of main element, above the footer */
-.new-post-btn {
+.post-btn {
     /* padding: 5px;
     margin: 0 auto;
     position: absolute;
     bottom: 100px; */
-    margin-left: 35em;
-    margin-right: 35em;
-    bottom: 100px;
+    font-size: 24px;
+    color: var(--white) !important;
+    text-align: center;
+    padding: 4px;
+
+    margin-left: 20em;
+    margin-right: 20em;
+    bottom: 10px;
+    background-color: var(--black);
+    border-style: solid;
+    border-color: var(--black);
+    border-width: 2px;
+    border-radius: 6px;
     /* position: fixed; */
 }
 
