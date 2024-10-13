@@ -31,7 +31,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // create new post
-router.post('/', withAuth, async (req, res) => {
+router.post('/new-post', withAuth, async (req, res) => {
     try {
         const newPost = await BlogPost.create({
             ...req.body,
@@ -44,8 +44,18 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+router.get('/new-post', withAuth, async (req, res) => {
+  try {
+    res.render('new-post');
+  } catch (err) {
+    alert('Error rendering new post form');
+    console.error(err);
+    res.status(500).json(err);
+  }
+})
+
 // update a specific post
-router.put('/posts/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.update(req.body, {
       where: {
@@ -66,7 +76,7 @@ router.put('/posts/:id', withAuth, async (req, res) => {
 });
 
 // delete a specific post
-router.delete('/posts/:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.destroy({
       where: {
