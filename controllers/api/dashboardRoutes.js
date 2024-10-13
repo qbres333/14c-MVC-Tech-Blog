@@ -8,45 +8,30 @@ const withAuth = require('../../utils/auth');
 // view user-specific posts
 router.get('/', withAuth, async (req, res) => {
     try {
-      // get username to display on blogs view (passed in res.render below)
-      const user = await User.findByPk(req.session.user_id, {
-        attributes: ['username'],
-      });
-      // use optional chaining to access username property
-      const name = user?.username;
-
-      const blogData = await BlogPost.findAll({
-        // match the user id to the blogpost user_id property
-        where: {
-          user_id: req.session.user_id,
-        },
-        include: [
-          { model: User, attributes: ['username'] },
-          // { model: Comment }, //add Comment model if needed
-        ],
-      });
-      // serialize the data so the template can read it
-      const blogposts = blogData.map((blogpost) =>
-        blogpost.get({ plain: true })
-      );
-      // render dashboard view with all the user's posts
-      res.render('dashboard', {
-        blogposts: blogposts,
-        logged_in: req.session.logged_in,
-        name,
-      });
+        const blogData = await BlogPost.findAll({
+          // match the user id to the blogpost user_id property
+          where: {
+            user_id: req.session.user_id,
+          },
+          include: [
+            { model: User, attributes: ['username'] },
+            { model: Comment }, //add Comment model if needed
+          ],
+        });
+        // serialize the data so the template can read it
+        const userPosts = blogData.map((blogpost) => blogpost.get({ plain: true }));
+        // render dashboard view with all the user's posts
+        res.render('dashboard', {
+            blogposts: userPosts,
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-// GET new post view
-router.get('/new-post', withAuth, (req, res) => {
-  res.redirect('/new-post');
-})
-
 // create new post
-router.post('/new-post', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newPost = await BlogPost.create({
             ...req.body,
@@ -60,7 +45,7 @@ router.post('/new-post', withAuth, async (req, res) => {
 });
 
 // update a specific post
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/posts/:id', withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.update(req.body, {
       where: {
@@ -81,7 +66,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 // delete a specific post
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/posts/:id', withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.destroy({
       where: {
@@ -103,14 +88,14 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 // POST - '/logout' route
-router.post('/logout', withAuth, (req, res) => {
-    // if (req.session.logged_in) {
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
         req.session.destroy(() => {
             res.status(200).end();
         });
-    // } else {
-    //     res.status(400).json({ message: 'error logging out'});
-    // }
+    } else {
+        res.status(400).json({ message: 'You must be logged in to log out'});
+    }
 });
 
 //render homepage when logged out

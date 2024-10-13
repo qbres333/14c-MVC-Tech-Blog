@@ -15,5 +15,3 @@ https://getbootstrap.com/docs/5.0/getting-started/introduction/
 Toggle Password Visibility:
 https://www.w3schools.com/howto/howto_js_toggle_password.asp
 
-Optional Chaining:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining

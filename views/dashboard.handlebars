@@ -1,18 +1,13 @@
 {{!-- dashboard shows all of the user's posts, and the option to create a new post --}}
-<div class="row justify-content-end mt-3 mb-3 current-user">
-    <div>Logged in as: {{name}}</div>
-</div>
-
 
 {{!-- ------------ refactor code from homepage ---------- --}}
-<div class="mt-1">
 {{#if blogposts.length}}
 
     {{#each blogposts as |blogpost|}} 
-    <div class="row mb-1 mt-1 blogpost">
+    <div class="row mb-3 mt-1 blogpost">
         <div class="col-md-12 d-flex post-preview justify-content-between">
-            <a href="/{{blogpost.id}}">{{blogpost.title}}</a>
-            <div>Posted by {{name}} on {{format_date blogpost.dateCreated}}</div>
+            <a href="/posts/{{blogpost.id}}">{{blogpost.title}}</a>
+            <div>Posted by {{blogpost.user.username}} on {{format_date blogpost.dateCreated}}</div>
         </div>
 
     </div>
@@ -21,23 +16,19 @@
 {{!-- <div class="no-posts text-center align-middle mb-10">Click "+ New Post" to add a blog post here.</div> --}}
 
 {{/if}}
-</div>
 
-{{!-- <div class="d-grid gap-3 mt-3 mb-3 new-post-btn">
+<div class="d-grid gap-3 mt-3 mb-3 new-post-btn">
     <button class="btn btn-dark w-100" type="submit">+ New Post</button>
-</div> --}}
-{{!-- link to create new blog post --}}
-<div class="post-btn">
-    <a href="/new-post" id="new-post-btn">+ New Post</a>
 </div>
 
 
-{{!-- ------------------- scripts ---------------------- --}}
-{{!-- <script src="/js/dashboard.js"></script> --}}
+
+{{!-- -------------------scripts---------------------- --}}
+<script src="/js/dashboard.js"></script>
 
 {{!-- script to render new post view --}}
-{{!-- <script src="/js/new-post.js"></script> --}}
+<script src="/js/new-post.js"></script>
 
-{{!-- {{#if logged_in}}
+{{#if logged_in}}
         <script src="/js/logout.js"></script>
-{{/if}} --}}
+{{/if}}

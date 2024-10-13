@@ -8,8 +8,6 @@
         <div>{{content}}</div>
     </div>
 
-    {{!-- add comment form --}}
-
     {{!-- conditionally show associated comments --}}
     {{#if blogPost.comment.length}}
     <div class="col-md-12 mt-1 comment-list">
@@ -26,6 +24,3 @@
     
 </div>
 
-
-{{!-- script to send comment form to server --}}
-<script src="/js/comment"></script>
