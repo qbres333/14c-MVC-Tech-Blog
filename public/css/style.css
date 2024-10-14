@@ -15,8 +15,9 @@ body {
     background-color: var(--blueGray);
 }
 
-.flex-column {
-    position: sticky; /* freeze at the top of viewport */
+.nav-header {
+    /* freeze at the top of viewport */
+    position: sticky;
     top: 0;
     z-index: 1;
 }
@@ -24,12 +25,13 @@ body {
 nav,
 header {
     background-color: var(--black);
-    
+        
 }
 
 
 /* nav bar links */
-nav a {
+nav a,
+.username {
     color: var(--blueGray);
     margin-left: 40px;
     font-size: 30px;
@@ -57,9 +59,10 @@ main {
     flex-wrap: wrap;
     flex-grow: 1;
     overflow-y: auto; /* allow scrolling in <main> */
-    z-index: 0; /* scroll behind header/nav and footer */
+    /* z-index: 0; */    /* scroll behind header/nav and footer */
 
-    max-height: calc(100vh - 100px);
+    /* min-height: calc(100vh - 100px); */
+    min-height: 100vh;
     margin: 30px 50px 30px 50px;
     box-sizing: content-box;
 }
@@ -80,15 +83,17 @@ main {
 
 }
 
+
 .blogpost,
 .login,
-.signup {
+.signup,
+.new-post {
     border: 1px solid var(--black);
     border-width: 3px;
     border-color: var(--black);
-    border-radius: 5px;
-    margin-left: 10em;
-    margin-right: 10em;
+    border-radius: 6px;
+    margin-left: 15em;
+    margin-right: 15em;
 }
 
 .post-preview,
@@ -97,7 +102,23 @@ main {
 .post-content,
 label {
     font-size: 20px;
-    /* font-weight: bolder; */
+    
+}
+
+label {
+    font-weight: bolder;
+}
+
+.post-preview,
+.update-btn,
+.delete-btn,
+.create-post-btn,
+.comment-btn {
+    background-color: var(--gray);
+    color: var(--white);
+    font-size: 24px;
+    font-weight: bolder;
+    margin: 1.2em;
 }
 
 .post-header,
@@ -112,6 +133,14 @@ label {
     
 }
 
+.form-check, .form-check-label {
+    vertical-align: middle;
+}
+
+.form-check-input {
+    height: 15px;
+    width: 15px;
+}
 
 .post-header,
 .post-comments,
@@ -123,31 +152,29 @@ label {
 .post-content {
     background-color: var(--blueGray);
     color: var(--black);
-    padding: 8px;
+    padding: 1em;
     /* font-size: 20px; */
 
 }
 
-.post-preview,
-.update-btn,
-.delete-btn {
-    background-color: var(--gray);
-    color: var(--blueGray);
+
+.new-post-form,
+.login-form,
+.signup-form {
+    padding: 1em;
 }
-
-
 /* align new-post-btn to bottom of main element, above the footer */
 .new-post-btn {
-    /* padding: 5px;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 100px; */
     margin-left: 35em;
     margin-right: 35em;
     bottom: 100px;
     /* position: fixed; */
 }
 
+.add-new,
+.add-comment {
+    font-size: 24px;
+}
 
 .form-input {
     border-color: var(--aqua);
@@ -157,10 +184,7 @@ label {
 .toggle-pass {
     font-size: 16px;
 }
-/* .btn {
-    display: block;
-    align-items: center;
-} */
+
 
 .login-link, .signup-link {
     display: inline;

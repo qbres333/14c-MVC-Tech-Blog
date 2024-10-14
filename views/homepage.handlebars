@@ -3,18 +3,18 @@ loop over each object in the blogposts array --}}
 {{#each blogposts as |blogpost| }} 
 <div class="row mb-3 mt-1 blogpost">
     <div class="col-md-12 d-flex post-header justify-content-between">
-        <a href="/posts/{{blogpost.id}}">{{blogpost.title}}</a>
+        <a href="/{{blogpost.id}}">{{blogpost.title}}</a>
         <div>Posted by {{blogpost.user.username}} on {{format_date blogpost.dateCreated}}</div>
     </div>
     <div class="col-md-12 post-content">
         <div>{{blogpost.content}}</div>
     </div>
     {{!-- coonditionally show number of comments --}}
-    {{#if blogpost.comment.length}}
+    {{!-- {{#if blogpost.comment.length}}
     <div class="col-md-12 post-comments justify-content-start"></div>
         <div>{{blogpost.comment.length}} Comments</div>
     </div>
-    {{/if}}
+    {{/if}} --}}
 
 </div>
 {{/each}}
