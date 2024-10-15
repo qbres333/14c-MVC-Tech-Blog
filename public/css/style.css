@@ -62,10 +62,9 @@ main {
     flex-wrap: wrap;
     flex-grow: 1;
     overflow-y: auto; /* allow scrolling in <main> */
-    /* z-index: 0; */    /* scroll behind header/nav and footer */
 
-    /* min-height: calc(100vh - 100px); */
-    min-height: 100vh;
+    min-height: calc(100vh - 300px);
+    /* min-height: 100vh; */
     margin: 30px 50px 30px 50px;
     box-sizing: content-box;
 }
@@ -92,7 +91,7 @@ main {
 .signup,
 .new-post,
 .new-comment {
-    border: 1px solid var(--black);
+    border: solid;
     border-width: 3px;
     border-color: var(--black);
     border-radius: 6px;
@@ -100,9 +99,8 @@ main {
     margin-right: 15em;
 }
 
-.post-preview,
-.update-btn,
-.delete-btn,
+/* .update-btn, */
+/* .delete-btn, */
 .post-content,
 label {
     font-size: 20px;
@@ -113,7 +111,6 @@ label {
     font-weight: bolder;
 }
 
-.post-preview,
 .update-btn,
 .delete-btn,
 .create-btn,
@@ -122,9 +119,10 @@ label {
     color: var(--white);
     font-size: 24px;
     font-weight: bolder;
-    margin: 1.2em;
+    margin-top: 1em;
 }
 
+/* .post-preview, */
 .post-header,
 .post-comments,
 .comment-header,
@@ -135,6 +133,20 @@ label {
     color: var(--blueGray);
     align-items: center; /* align vertically */
     
+}
+
+.post-preview {
+    font-size: 24px;
+    background-color: var(--gray);
+    color: var(--blueGray);
+    align-items: center; /* align vertically */
+    border-radius: 6px;
+    
+}
+
+.dash-post {
+    margin-left: 15em;
+    margin-right: 15em;
 }
 
 .post-comment {
@@ -178,13 +190,19 @@ label {
 .new-post-btn {
     margin-left: 35em;
     margin-right: 35em;
-    bottom: 100px;
-    /* position: fixed; */
+    bottom: 110px;
 }
 
 .add-new,
 .add-comment {
     font-size: 24px;
+}
+
+.add-new {
+    /* move New Post btn to bottom of page */
+    /* position: relative; */
+    /* bottom: 150px; */
+    border-radius: 6px;
 }
 
 .form-input {

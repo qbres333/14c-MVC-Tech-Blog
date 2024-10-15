@@ -19,7 +19,7 @@ const newPostHandler = async (event) => {
       if (response.ok) {
         /* if request is successful, redirect to the user's dashboard,
       which shows the new post */
-        document.location.replace('/dashboard');
+        document.location.replace('/api/dashboard');
       } else {
         alert('Failed to create new post. Please try again.');
         console.error(response.statusText);

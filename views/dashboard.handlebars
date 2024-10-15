@@ -1,14 +1,14 @@
 {{!-- dashboard shows all of the user's posts, and the option to create a new post --}}
 
 {{!-- ------------ refactor code from homepage ---------- --}}
-<div class="row d-flex mt-1">
+{{!-- <div class="row d-flex mt-1"> --}}
     {{#if blogposts.length}}
 
         {{#each blogposts as |blogpost|}} 
-        <div class="row mb-3 mt-1 blogpost">
+        <div class="row mb-3 mt-1 dash-post"> <!-- removed blogpost class -->
             <div class="col-md-12 d-flex post-preview justify-content-between">
                 <a href="/{{blogpost.id}}">{{blogpost.title}}</a>
-                <div>Posted by {{name}} on {{format_date blogpost.dateCreated}}</div>
+                <div>Posted on {{format_date blogpost.dateCreated}}</div>
             </div>
 
         </div>
@@ -19,9 +19,9 @@
     {{/if}}
 
 
-</div>
+{{!-- </div> --}}
 
-<div class="d-grid gap-3 mt-3 mb-3 new-post-btn">
+<div class="d-grid gap-3 mt-3 mb-3 fixed-bottom new-post-btn">
     <button class="btn btn-dark w-100 add-new" type="submit">+ New Post</button>
 </div>
 
