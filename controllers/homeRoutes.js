@@ -48,10 +48,10 @@ router.get('/:id', withAuth, async (req, res) => {
                     model: User,
                     attributes: ['username']
                 },
-                {
-                    model: Comment,
-                    attributes: ['user_id', 'comment']
-                }
+                // {
+                //     model: Comment,
+                //     attributes: ['user_id']
+                // }
             ]
         });
 
@@ -67,31 +67,10 @@ router.get('/:id', withAuth, async (req, res) => {
     }
 })
 
-
-// route to render dashboard
-router.get('/dashboard', (req, res) => {
-    if (!req.session.logged_in) {
-        // .redirect takes URL parameter
-        res.redirect('/login'); //redirect to login page if not logged in
-        return;
-    }
-    // .render takes a view parameter (no / )
-    res.render('dashboard', {
-        logged_in: true
-    });
+// render dashboard from link on homepage if logged in
+router.get('/dashboard', withAuth, (req, res) => {
+  res.render('dashboard');
 });
-
-// route to direct user to the login page
-router.get('/login', (req, res) => {
-    // if user is logged in, redirect to the dashboard view
-    if (req.session.logged_in) {
-        res.redirect('/dashboard');
-        return;
-    }
-    // if user is not logged in, redirect to the login view
-    res.render('login');
-})
-
 
 // POST - '/logout' route
 router.post('/logout', (req, res) => {
@@ -104,9 +83,5 @@ router.post('/logout', (req, res) => {
     }
 });
 
-//render homepage when logged out
-// router.get('/logout', (req, res) => {
-//     res.render('homepage');
-// });
 
 module.exports = router;

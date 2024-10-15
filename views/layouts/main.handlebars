@@ -17,20 +17,20 @@
                 {{#if logged_in}}
                 {{!-- hrefs are routes --}}
                 <a href="/" id="homepage">Home</a>
-                <a href="/dashboard" id="dashboard">Dashboard</a>
+                <a href="/api/dashboard" id="dashboard">Dashboard</a>
                 <a href="/logout" id="logout">Logout</a>
                 {{!-- <a href="#" id="logout">Logout</a> --}}
                 {{else}}
                 <a href="/" id="homepage">Home</a>
-                <a href="/dashboard" id="dashboard">Dashboard</a>
-                <a href="/login" id="login">Login</a>
+                <a href="/api/dashboard" id="dashboard">Dashboard</a>
+                <a href="/api/user/login" id="login">Login</a>
                 {{/if}}
             </nav>
             {{!-- render homepage header --}}
             <header class="d-flex p-1 justify-content-between">
                 <div class="tech-blog">The Tech Blog</div>
                 {{#if logged_in}}
-                <div class="username">username: {{username}}</div>
+                <div class="username">current user: {{username}}</div>
                 {{/if}}
             </header>
         </div>

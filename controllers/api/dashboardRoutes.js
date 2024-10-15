@@ -32,7 +32,7 @@ router.get('/', withAuth, async (req, res) => {
         // render dashboard view with all the user's posts
         res.render('dashboard', {
           blogposts: blogposts,
-          logged_in: true,
+          logged_in: req.session.logged_in,
           name
         });
     } catch (err) {
@@ -108,14 +108,14 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 
 // POST - '/logout' route
-router.post('/logout', withAuth, (req, res) => {
-    // if (req.session.logged_in) {
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
         req.session.destroy(() => {
             res.status(200).end();
         });
-    // } else {
-    //     res.status(400).json({ message: 'You must be logged in to log out'});
-    // }
+    } else {
+        res.status(400).json({ message: 'You must be logged in to log out'});
+    }
 });
 
 

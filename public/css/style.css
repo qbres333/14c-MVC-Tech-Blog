@@ -37,6 +37,9 @@ nav a,
     font-size: 30px;
 
 }
+.username {
+    margin-right: 40px;
+}
 
 /* links */
 a,
@@ -75,7 +78,7 @@ main {
     border-radius: 8px;
     padding: 5px 20px;
     font-size: 45px;
-    font-weight: 900;
+    font-weight: 800;
     background-color: var(--blueGray);
     color: var(--black);
     margin: 0px 0px 20px 40px;
@@ -87,7 +90,8 @@ main {
 .blogpost,
 .login,
 .signup,
-.new-post {
+.new-post,
+.new-comment {
     border: 1px solid var(--black);
     border-width: 3px;
     border-color: var(--black);
@@ -112,7 +116,7 @@ label {
 .post-preview,
 .update-btn,
 .delete-btn,
-.create-post-btn,
+.create-btn,
 .comment-btn {
     background-color: var(--gray);
     color: var(--white);
@@ -131,6 +135,12 @@ label {
     color: var(--blueGray);
     align-items: center; /* align vertically */
     
+}
+
+.post-comment {
+    font-size: 18px;
+    background-color: var(--gray);
+    color: var(--blueGray)
 }
 
 .form-check, .form-check-label {
@@ -160,7 +170,8 @@ label {
 
 .new-post-form,
 .login-form,
-.signup-form {
+.signup-form,
+.edit-post-form {
     padding: 1em;
 }
 /* align new-post-btn to bottom of main element, above the footer */

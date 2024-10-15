@@ -16,7 +16,7 @@ const loginFormHandler = async (event) => {
 
           if (response.ok) {
             // if request is successful, redirect to the user's dashboard (route)
-            document.location.replace('/dashboard');
+            document.location.replace('/api/dashboard');
           } else {
             alert('Login failed. Please check your spelling, or sign up to The Tech Blog.')
             console.error(response.statusText);

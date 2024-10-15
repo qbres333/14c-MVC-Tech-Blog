@@ -1,5 +1,5 @@
 {{!-- single post with section to add a comment --}}
-<div class="row mb-3 mt-1 blogpost">
+<div class="row d-flex mt-1 blogpost">
     <div class="col-md-12 d-flex post-header justify-content-between">
         <div>{{title}}</div>
         <div>Posted by {{user.username}} on {{format_date dateCreated}}</div>
@@ -10,20 +10,33 @@
     
 </div>
 
-{{!-- new comment form --}}
 
-<div class="col-12 mb-3 mt-3">  <!-- flex row -->
-    <form class="form new-comment-form">
-        <div class="form-group">
-            <label for="comment-title" class="form-label">Comment:</label>
-            <input class="form-input form-control" type="text" id="comment-title" name="comment-title" />
-        </div>
-        <div class="form-group">
-            <label for="comment-content" class="form-label">Content:</label>
-            <textarea class="form-input form-control" type="text" id="comment-content" name="comment-content"></textarea>
-        </div>
-        <div class="d-grid gap-3 mb-3 comment-btn">
-            <button class="btn btn-secondary w-100 add-comment" type="submit">Submit</button>
-        </div>
-    </form>
+
+
+{{!-- new comment form --}}
+<div class="row d-flex mt-3 new-comment">
+    <div class="col-12 d-flex post-header">  <!-- flex row -->
+        <h3 class="p-1">Comment:</h3>
+    </div>
+
+    <div class="col-12 mb-3 mt-3">  <!-- flex row -->
+        <form class="form add-comment-form">
+            {{!-- <div class="form-group">
+                <label for="comment-title" class="form-label">Comment:</label>
+                <input class="form-input form-control" type="text" id="comment-title" name="comment-title" />
+            </div> --}}
+            <div class="form-group">
+                <textarea class="form-input form-control" type="text" id="comment-content" name="comment-content"></textarea>
+            </div>
+
+            <div class="d-grid gap-3 mb-3 comment-btn">
+                <button class="btn btn-secondary w-100 add-comment" type="submit">Submit</button>
+            </div>
+        </form>
+
+        
+    </div>
+
+    
+
 </div>

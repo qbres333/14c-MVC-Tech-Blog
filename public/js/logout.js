@@ -9,7 +9,6 @@ const logout = async () => {
       if (response.ok) {
         // return the user to the homepage
         document.location.replace('/');
-        // res.render('homepage');
       } else {
         alert('Failed to log out. Please try again.');
         console.error(response.statusText);

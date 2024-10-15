@@ -1,35 +1,41 @@
-<div class="row mt-1">
-    
-    {{!-- show title and content fields --}}
-     <h3 class="post-header">Edit Post</h3>
-     <form class="form edit-post-form" id="{{id}}"></form>
-        <div class="form-group">
-            <label for="post-title">Title:</label>
-            <input class="form-input form-control" type="text" id="post-title" name="post-title" value="{{title}}"/>
-        </div>
-        <div class="form-group"></div>
-            <label for="post-content">Content:</label>
-            <input class="form-input form-control" type="text" id="post-content" name="post-content" value="{{content}}"/>
-        </div>
-        <div class="d-grid gap-3 mb-3">
-            <button class="btn btn-secondary w-100 update-btn" type="submit">Update Post</button>
-        </div>
-        <div class="d-grid gap-3 mb-3">
-            <button class="btn btn-secondary w-100 delete-btn" type="submit">Create</button>
-        </div>
-    </form>
+<div class="row d-flex mt-1 edit-post">
+    <div class="col-12 d-flex post-header">
+        <h3 class="p-1">Edit Post</h3>
+    </div>
+
+    <div class="col-12 mb-3 mt-3">
+        <form class="form edit-post-form">
+            <div class="form-group">
+                <label for="post-title" class="form-label">Title:</label>
+                <input class="form-input form-control" type="text" id="post-title" name="post-title" value="{{title}}"/>
+            </div>
+            <div class="form-group">
+                <label for="post-content" class="form-label">Content:</label>
+                <input class="form-input form-control" type="text" id="post-content" name="post-content" value="{{content}}"/>
+            </div>
+            <div class="d-grid gap-3 mb-3">
+                <button class="btn btn-secondary w-100 update-btn" type="submit" data-id="{{id}}">Update Post</button>
+            </div>
+            <div class="d-grid gap-3 mb-3">
+                <button class="btn btn-warning w-100 delete-btn" type="submit" data-id="{{id}}">Delete</button>
+            </div>
+        </form>
+
+    </div>
+
     {{!-- click update post  --}}
-    <div class="update-btn">
+    {{!-- <div class="update-btn">
         <a href ="/dashboard">Update Post</a>
     </div>
     {{!-- click delete --}}
     <div class="delete-btn">
         <a href ="/dashboard">Delete</a>
-    </div>
+    </div> --}}
 
 </div>
 
+
 {{!-- script to handle update --}}
-<script src="/js/edit-post.js"></script>
+<script src="/js/update-post.js"></script>
 {{!-- script to handle deletion --}}
 <script src="/js/delete-post.js"></script>

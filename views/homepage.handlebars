@@ -10,11 +10,11 @@ loop over each object in the blogposts array --}}
         <div>{{blogpost.content}}</div>
     </div>
     {{!-- coonditionally show number of comments --}}
-    {{!-- {{#if blogpost.comment.length}}
-    <div class="col-md-12 post-comments justify-content-start"></div>
+    {{#if blogpost.comment.length}}
+    <div class="col-md-12 post-comment justify-content-start"></div>
         <div>{{blogpost.comment.length}} Comments</div>
     </div>
-    {{/if}} --}}
+    {{/if}}
 
 </div>
 {{/each}}

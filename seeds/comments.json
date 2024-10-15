@@ -1,0 +1,17 @@
+[
+    {
+        "comment": "very informative!",
+        "user_id": 1,
+        "blogpost_id": 2
+    },
+    {
+        "comment": "very informative!",
+        "user_id": 2,
+        "blogpost_id": 3
+    },
+    {
+        "comment": "very informative!",
+        "user_id": 3,
+        "blogpost_id": 1
+    }
+]

@@ -5,9 +5,10 @@ const updatePostHandler = async (event) => {
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
 
-    const id = event.target.getAttribute('id');
+    const id = event.target.getAttribute('data-id');
 
   try {
+    // change route if needed
     const response = await fetch(`/api/dashboard/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ title, content }),
@@ -28,5 +29,5 @@ const updatePostHandler = async (event) => {
 }
 // update bloglist on dashboard upon submit
 document
-  .querySelector('.edit-post-form')
+  .querySelector('.update-btn')
   .addEventListener('submit', updatePostHandler);

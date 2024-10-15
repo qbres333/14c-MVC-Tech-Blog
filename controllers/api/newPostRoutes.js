@@ -14,25 +14,21 @@ router.post('/', withAuth, async (req, res) => {
         res.status(200).json(newPost);
 
     } catch (err) {
+        console.error(err);
         res.status(400).json(err);
     }
 });
 
-//render new post view
-// router.get('/new-post', withAuth, (req, res) => {
-//     res.render('new-post');
-// })
-
 
 // POST - '/logout' route
 router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-        req.session.destroy(() => {
-            res.status(200).end();
-        });
-    } else {
-        res.status(400).json({ message: 'You must be logged in to log out'});
-    }
+  if (req.session.logged_in) {
+  req.session.destroy(() => {
+    res.status(200).end();
+  });
+  } else {
+      res.status(400).json({ message: 'You must be logged in to log out'});
+  }
 });
 
 
