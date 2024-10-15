@@ -7,7 +7,7 @@
         {{#each blogposts as |blogpost|}} 
         <div class="row mb-3 mt-1 dash-post"> <!-- removed blogpost class -->
             <div class="col-md-12 d-flex post-preview justify-content-between">
-                <a href="/{{blogpost.id}}">{{blogpost.title}}</a>
+                <a href="/api/update/{{blogpost.id}}">{{blogpost.title}}</a>
                 <div>Posted on {{format_date blogpost.dateCreated}}</div>
             </div>
 
@@ -29,6 +29,4 @@
 {{!-- -------------------scripts---------------------- --}}
 <script src="/js/dashboard.js"></script>
 
-{{!-- {{#if logged_in}} --}}
-{{!-- <script src="/js/logout.js"></script> --}}
-{{!-- {{/if}} --}}
+

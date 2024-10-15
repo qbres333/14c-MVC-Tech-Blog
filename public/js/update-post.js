@@ -9,7 +9,7 @@ const updatePostHandler = async (event) => {
 
   try {
     // change route if needed
-    const response = await fetch(`/api/dashboard/${id}`, {
+    const response = await fetch(`/api/update/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ title, content }),
       headers: { 'Content-type': 'application/json' },

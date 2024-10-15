@@ -1,9 +1,10 @@
 // create router instance, import models, utils
 const router = require('express').Router();
-const { BlogPost, User, Comment } = require('../../models');
+const { BlogPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // '/api/new-post' endpoint
+
 // create new post
 router.post('/', withAuth, async (req, res) => {
     try {
