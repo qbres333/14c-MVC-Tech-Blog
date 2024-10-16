@@ -1,25 +1,19 @@
 {{!-- dashboard shows all of the user's posts, and the option to create a new post --}}
 
 {{!-- ------------ refactor code from homepage ---------- --}}
-{{!-- <div class="row d-flex mt-1"> --}}
-    {{#if blogposts.length}}
+{{#if blogposts.length}}
 
-        {{#each blogposts as |blogpost|}} 
-        <div class="row mb-3 mt-1 dash-post"> <!-- removed blogpost class -->
-            <div class="col-md-12 d-flex post-preview justify-content-between">
-                <a href="/api/update/{{blogpost.id}}">{{blogpost.title}}</a>
-                <div>Posted on {{format_date blogpost.dateCreated}}</div>
-            </div>
+    {{#each blogposts as |blogpost|}} 
+    <div class="d-grid gap-3 mt-3 mb-3 dash-post"> <!-- removed blogpost class -->
+        <button class="btn btn-secondary w-100 post-preview d-flex justify-content-between" data-id="{{blogpost.id}}" data-title="{{blogpost.title}}" data-content="{{blogpost.content}}" type="submit">
+            <span class="update-post-link">{{blogpost.title}}</span>
+            <span>Posted on {{format_date blogpost.dateCreated}}</span>
+        </button>
 
-        </div>
-        {{/each}}
-    {{!-- {{else}} --}}
-    {{!-- <div class="no-posts text-center align-middle mb-10">Click "+ New Post" to add a blog post here.</div> --}}
+    </div>
+    {{/each}}
 
-    {{/if}}
-
-
-{{!-- </div> --}}
+{{/if}}
 
 <div class="d-grid gap-3 mt-3 mb-3 fixed-bottom new-post-btn">
     <button class="btn btn-dark w-100 add-new" type="submit">+ New Post</button>

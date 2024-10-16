@@ -5,20 +5,22 @@
     </div>
 
     <div class="col-12 mb-3 mt-3">
-        <form class="form edit-post-form">
+        <form class="form edit-post-form" id="edit-post-form">
             <div class="form-group">
                 <label for="post-title" class="form-label">Title:</label>
-                <input class="form-input form-control" type="text" id="post-title" name="post-title" value="{{title}}"/>
+                <input class="form-input form-control" type="text" id="post-title" name="post-title" value="{{blogpost.title}}"/>
+                {{!-- <input class="form-input form-control" type="text" id="post-title" name="post-title"/> --}}
             </div>
             <div class="form-group">
                 <label for="post-content" class="form-label">Content:</label>
-                <input class="form-input form-control" type="text" id="post-content" name="post-content" value="{{content}}"/>
+                <textarea class="form-input form-control" type="text" id="post-content" name="post-content" value="{{format_content blogpost.content}}"></textarea>
+                {{!-- <textarea class="form-input form-control" type="text" id="post-content" name="post-content"></textarea> --}}
             </div>
             <div class="d-grid gap-3 mb-3">
-                <button class="btn btn-secondary w-100 update-btn" type="submit" data-id="{{id}}">Update Post</button>
+                <button class="btn btn-secondary w-100 update-btn" type="submit" data-id="{{blogpost.id}}">Update Post</button>
             </div>
             <div class="d-grid gap-3 mb-3">
-                <button class="btn btn-warning w-100 delete-btn" type="submit" data-id="{{id}}">Delete</button>
+                <button class="btn btn-danger w-100 delete-btn" type="submit" data-id="{{blogpost.id}}">Delete</button>
             </div>
         </form>
 
@@ -27,6 +29,7 @@
 </div>
 
 
+<script src="/js/dashboard.js"></script>
 {{!-- script to handle update --}}
 <script src="/js/update-post.js"></script>
 {{!-- script to handle deletion --}}

@@ -34,3 +34,32 @@ document
   .querySelector('.new-post-btn')
   .addEventListener('click', fetchNewPostView);
 
+
+const fetchEditPostView = async (event) => {
+  const id = event.currentTarget.getAttribute('data-id');
+  
+  try {
+    const response = await fetch(`/api/dashboard/update/${id}`, {
+      method: 'GET',
+    });
+
+    if (response.ok) {
+      console.log(response);
+      document.location.replace(`/api/dashboard/update/${id}`);
+  
+    } else {
+      alert('Unable to fetch edit-post view');
+      console.error(response.statusText);
+    }
+  } catch (err) {
+    alert('Error fetching edit-post route. Please try again.');
+    console.error(err);
+  }
+};
+
+// fetch view when button is clicked
+document
+  .querySelectorAll('.post-preview').forEach((button) => {
+    button.addEventListener('click', fetchEditPostView);
+  });
+  

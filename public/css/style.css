@@ -90,6 +90,7 @@ main {
 .login,
 .signup,
 .new-post,
+.edit-post,
 .new-comment {
     border: solid;
     border-width: 3px;

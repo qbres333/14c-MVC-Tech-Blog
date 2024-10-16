@@ -12,12 +12,14 @@ router.get('/:id', withAuth, async (req, res) => {
           where: {
             user_id: req.session.user_id,
           },
+          include: [{ model: User }],
         });
 
         const blogpost = blogData.get({ plain: true });
         // render blogpost view
         res.render('edit-post', {
-          ...blogpost,
+          title: blogpost.title,
+          content: blogpost.content,
           logged_in: true,
         });
 

@@ -1,5 +1,6 @@
 // update handler: send PUT request to API if the user updates the post
 const updatePostHandler = async (event) => {
+    // event.preventDefault();
 
     // get values from updated post inputs
     const title = document.querySelector('#post-title').value.trim();
