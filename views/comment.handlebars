@@ -1,42 +1,49 @@
 {{!-- single post with section to add a comment --}}
-<div class="row d-flex mt-1 blogpost">
+<div class="row mb-3 mt-1 blogpost">
     <div class="col-md-12 d-flex post-header justify-content-between">
-        <div>{{title}}</div>
-        <div>Posted by {{user.username}} on {{format_date dateCreated}}</div>
+        <div>{{blogpost.title}}</div>
+        <div>Posted by {{blogpost.user.username}} on {{format_date blogpost.dateCreated}}</div>
     </div>
     <div class="col-md-12 post-content">
-        <div>{{content}}</div>
+        <div>{{blogpost.content}}</div>
     </div>
     
 </div>
 
 
-
-
-{{!-- new comment form --}}
-<div class="row d-flex mt-3 new-comment">
-    <div class="col-12 d-flex post-header">  <!-- flex row -->
-        <h3 class="p-1">Comment:</h3>
+{{!-- Bootstrap new comment form --}}
+<div class="row d-flex mt-1 new-comment">
+    <div class="col-12 d-flex comment-header">  <!-- flex row -->
+        <h3 class="p-1"></h3>
     </div>
 
     <div class="col-12 mb-3 mt-3">  <!-- flex row -->
-        <form class="form add-comment-form">
-            {{!-- <div class="form-group">
-                <label for="comment-title" class="form-label">Comment:</label>
-                <input class="form-input form-control" type="text" id="comment-title" name="comment-title" />
-            </div> --}}
+        <form class="form new-comment-form">
             <div class="form-group">
-                <textarea class="form-input form-control" type="text" id="comment-content" name="comment-content"></textarea>
+                <label for="comment-content" class="form-label">Comment:</label>
+                <textarea class="form-input form-control" rows="5" id="comment-content" name="comment-content"></textarea>
             </div>
 
-            <div class="d-grid gap-3 mb-3 comment-btn">
-                <button class="btn btn-secondary w-100 add-comment" type="submit">Submit</button>
+            <div class="d-grid gap-3 mb-3">
+                <button class="btn btn-secondary w-100 comment-btn" type="submit">Submit</button>
             </div>
         </form>
-
         
-    </div>
-
-    
+    </div>    
 
 </div>
+
+{{!-- conditionally render other user comment for the blogpost --}}
+{{#if blogpost.comment.length}}
+    {{#each comments as |comment|}}
+    <div class="col-md-12 comment-header justify-content-between"></div>
+        <div>Comment from {{blogpost.comment.username}}</div>
+        <div>Post on {{blogpost.comment.dateCreated}}</div>
+    </div>
+    <div class="col-md-12 post-content"></div>
+        <div>{{blogpost.comment.comment}}</div>
+    </div>
+
+    {{/each}}
+
+{{/if}}

@@ -17,3 +17,9 @@ https://www.w3schools.com/howto/howto_js_toggle_password.asp
 
 JavaScript dataset property:
 https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
+
+Handlebars.js:
+https://handlebarsjs.com/guide/
+
+Express Routing:
+https://expressjs.com/en/guide/routing.html

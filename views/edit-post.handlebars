@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-12 mb-3 mt-3">
-        <form class="form edit-post-form" id="edit-post-form">
+        <form class="form edit-post-form" id="edit-post-form" data-id="{{blogpost.id}}">
             <div class="form-group">
                 <label for="post-title" class="form-label">Title:</label>
                 <input class="form-input form-control" type="text" id="post-title" name="post-title" value="{{blogpost.title}}"/>
@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
                 <label for="post-content" class="form-label">Content:</label>
-                <textarea class="form-input form-control" type="text" id="post-content" name="post-content" value="{{format_content blogpost.content}}"></textarea>
+                <textarea class="form-input form-control" rows="5" id="post-content" name="post-content">{{blogpost.content}}</textarea>
                 {{!-- <textarea class="form-input form-control" type="text" id="post-content" name="post-content"></textarea> --}}
             </div>
             <div class="d-grid gap-3 mb-3">
@@ -27,6 +27,11 @@
     </div>
 
 </div>
+
+<div class="d-grid gap-3 mt-3 mb-3 fixed-bottom new-post-btn">
+    <button class="btn btn-dark w-100 add-new" type="submit">+ New Post</button>
+</div>
+
 
 
 <script src="/js/dashboard.js"></script>

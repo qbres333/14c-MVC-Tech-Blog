@@ -37,7 +37,7 @@ document
 
 const fetchEditPostView = async (event) => {
   const id = event.currentTarget.getAttribute('data-id');
-  
+
   try {
     const response = await fetch(`/api/dashboard/update/${id}`, {
       method: 'GET',

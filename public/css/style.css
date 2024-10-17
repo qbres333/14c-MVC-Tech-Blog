@@ -103,6 +103,7 @@ main {
 /* .update-btn, */
 /* .delete-btn, */
 .post-content,
+.comment-content,
 label {
     font-size: 20px;
     

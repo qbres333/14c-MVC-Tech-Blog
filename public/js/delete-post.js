@@ -4,7 +4,7 @@ const deletePostHandler = async (event) => {
       const id = event.target.getAttribute('data-id');
       
       // CHANGE ROUTE if needed
-      const response = await fetch(`/api/dashboard/${id}`, {
+      const response = await fetch(`/api/dashboard/update/${id}`, {
         method: 'DELETE',
       });
 
@@ -25,5 +25,5 @@ const deletePostHandler = async (event) => {
 
 // update bloglist on dashboard upon submit
 document
-  .querySelector('.delete-btn')
+  .querySelector('.edit-post-form')
   .addEventListener('submit', deletePostHandler);

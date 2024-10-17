@@ -49,13 +49,6 @@ router.get('/new-post', withAuth, (req, res) => {
     });
 });
 
-// render edit-post view --------------------------------------
-// renders empty form
-// router.get('/update', withAuth, (req, res) => {
-//   res.render('edit-post', {
-//     logged_in: true,
-//   });
-// });
 
 // // // render edit-post view with blog data--------------------------------------
 router.get('/update/:id', withAuth, async (req, res) => {
@@ -75,8 +68,6 @@ router.get('/update/:id', withAuth, async (req, res) => {
         const blogpost = blogData.get({ plain: true });
         // render blogpost view
         res.render('edit-post', {
-          // title: blogpost.title,
-          // content: blogpost.content,
           blogpost: blogpost,
           logged_in: true,
         });
@@ -89,7 +80,7 @@ router.get('/update/:id', withAuth, async (req, res) => {
 });
 
 // update a specific post
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/update/:id', withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.update(req.body, {
       where: {
@@ -99,7 +90,8 @@ router.put('/:id', withAuth, async (req, res) => {
       },
     });
     // return error if update returns 0 (# of updated posts is 1)
-    if (postData[0] === 0) {
+    // if (postData[0] === 0) {
+    if (!postData) {
       res.status(404).json({ message: 'Blog post not found!' });
       return;
     }
@@ -111,7 +103,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 // delete a specific post
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/update/:id', withAuth, async (req, res) => {
   try {
     const postData = await BlogPost.destroy({
       where: {
