@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { BlogPost, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// '/api/update' endpoint
+// '/api/add-comment' endpoint
 
 
 // POST - '/logout' route

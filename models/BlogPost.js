@@ -33,6 +33,7 @@ BlogPost.init(
         key: 'id',
       },
     },
+    
   },
   {
     sequelize,

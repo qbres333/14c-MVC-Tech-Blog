@@ -100,8 +100,10 @@ main {
     margin-right: 15em;
 }
 
-/* .update-btn, */
-/* .delete-btn, */
+.blogpost {
+    padding: 0;
+}
+
 .post-content,
 .comment-content,
 label {
@@ -124,17 +126,30 @@ label {
     margin-top: 1em;
 }
 
-/* .post-preview, */
 .post-header,
-.post-comments,
+.post-header-link,
 .comment-header,
 .login-header {
-    /* height: 1.5em; */
     font-size: 24px;
     background-color: var(--black);
     color: var(--blueGray);
     align-items: center; /* align vertically */
+    padding-left: 16px;
     
+}
+
+.post-header,
+.post-header-link,
+.comment-header {
+    height: auto;
+}
+
+.post-footer {
+    font-size: 16px;
+    background-color: var(--black);
+    color: var(--blueGray);
+    align-items: center; /* align vertically */
+        
 }
 
 .post-preview {
@@ -166,17 +181,11 @@ label {
     width: 15px;
 }
 
-.post-header,
-.post-comments,
-.comment-header {
-    height: auto;
-    /* font-size: 24px; */
-}
-
 .post-content {
     background-color: var(--blueGray);
     color: var(--black);
     padding: 1em;
+    /* padding: 1em 1.2em 1em 1.2em; */
     /* font-size: 20px; */
 
 }

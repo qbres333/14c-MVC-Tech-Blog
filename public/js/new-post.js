@@ -10,7 +10,7 @@ const newPostHandler = async (event) => {
   if (title && content) {
     try {
       const response = await fetch('/api/new-post', {
-        //endpoint is user dashboard
+        //endpoint is new post route
         method: 'POST',
         body: JSON.stringify({ title, content }),
         headers: { 'Content-type': 'application/json' },

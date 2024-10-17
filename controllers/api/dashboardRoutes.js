@@ -89,8 +89,7 @@ router.put('/update/:id', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    // return error if update returns 0 (# of updated posts is 1)
-    // if (postData[0] === 0) {
+    // return error if blogpost not found
     if (!postData) {
       res.status(404).json({ message: 'Blog post not found!' });
       return;

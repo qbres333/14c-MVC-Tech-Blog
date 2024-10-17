@@ -16,7 +16,7 @@ BlogPost.belongsTo(User, {
 
 // blgopost can have many comments
 BlogPost.hasMany(Comment, {
-    foreignKey: 'user_id',
+    foreignKey: 'comment_id',
     onDelete: 'CASCADE' //if post is deleted, its comments are also deleted
 });
 
@@ -30,6 +30,9 @@ User.hasMany(Comment, {
 Comment.belongsTo(User, {
     foreignKey: 'user_id'
 });
+
+// User belongs to many comment
+// Comment belongs to many User
 
 // each comment is linked to a blogpost
 Comment.belongsTo(BlogPost, {

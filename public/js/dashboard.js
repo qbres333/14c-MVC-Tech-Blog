@@ -34,7 +34,8 @@ document
   .querySelector('.new-post-btn')
   .addEventListener('click', fetchNewPostView);
 
-
+  
+//fetch edit-post view
 const fetchEditPostView = async (event) => {
   const id = event.currentTarget.getAttribute('data-id');
 
@@ -44,7 +45,6 @@ const fetchEditPostView = async (event) => {
     });
 
     if (response.ok) {
-      console.log(response);
       document.location.replace(`/api/dashboard/update/${id}`);
   
     } else {
