@@ -1,12 +1,11 @@
 // create router instance, import models, utils
 const router = require('express').Router();
-const { BlogPost, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const { BlogPost, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-/**  '/api/comments' endppoint, 
-to view blogpost with associated comments */
+/**  '/api/comments' endppoint, to view blogpost with associated comments */
 
-// render blogpost view (blogpost with comments)
+// render blogpost view
 router.get('/:id', withAuth, async (req, res) => {
   try {
     // get username to display on blogs view (passed in res.render below)
@@ -24,10 +23,16 @@ router.get('/:id', withAuth, async (req, res) => {
         },
         {
           model: Comment,
-          order: [['dateCreated', 'DESC']],
+          include: {
+            model: User, //include user who posted the comment
+            attributes: ['username'],
+          },
         },
       ],
+    //   order: [[Comment, 'dateCreated', 'DESC']],
     });
+    //test
+    console.log(blogData);
 
     if (!blogData) {
       return res.status(404).json({ message: 'Blog post not found' });

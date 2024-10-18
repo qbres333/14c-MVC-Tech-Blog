@@ -12,16 +12,19 @@
 
 
 {{!-- conditionally render user comments for the blogpost --}}
-{{#if blogpost.comments.length}}
-    {{#each comments as |comment|}}
-    <div class="col-md-12 comment-header justify-content-between"></div>
-        <div>Comment from {{blogpost.comment.username}}</div>
-        <div>Posted on {{blogpost.comment.dateCreated}}</div>
-    </div>
-    <div class="col-md-12 post-content"></div>
-        <div>{{blogpost.comment.comment}}</div>
-    </div>
 
+{{#if blogpost.comments.length}}
+
+    {{#each blogpost.comments as |comment|}}
+    <div class="row mb-3 mb-3 comment">
+        <div class="col-md-12 comment-header d-flex justify-content-between">
+            <h3 class="p-1">|</h3>
+        </div>
+        <div class="col-md-12 comment-content">
+            <div>{{comment.comment}}</div><br>
+            <div>-{{comment.user.username}}, {{format_date comment.dateCreated}}</div>
+        </div>
+    </div>
     {{/each}}
 
 {{/if}}

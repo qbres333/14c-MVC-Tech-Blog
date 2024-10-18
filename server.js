@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3001;
 // create handlebars engine with helpers
 const hbs = exphbs.create({ helpers });
 
-
+//session cookie setup
 const sess = {
     // secret key used to sign/encrypt session cookies
     secret: 'secret',

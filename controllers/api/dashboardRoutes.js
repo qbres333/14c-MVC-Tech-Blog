@@ -22,7 +22,6 @@ router.get('/', withAuth, async (req, res) => {
           },
           include: [
             { model: User, attributes: ['username'] },
-            // { model: Comment }, //add Comment model if needed
           ],
         });
         // serialize the data so the template can read it
@@ -50,7 +49,7 @@ router.get('/new-post', withAuth, (req, res) => {
 });
 
 
-// // // render edit-post view with blog data--------------------------------------
+// render edit-post view 
 router.get('/update/:id', withAuth, async (req, res) => {
 
   try {
@@ -79,7 +78,7 @@ router.get('/update/:id', withAuth, async (req, res) => {
       logged_in: true,
       name
     });
-    
+
   } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -124,7 +123,6 @@ router.delete('/update/:id', withAuth, async (req, res) => {
       res.status(404).json({ message: 'Blog post not found!' });
       return;
     }
-    // show the number of deleted posts (1)
     res.status(200).json(postData);
   } catch (err) {
     console.error(err);

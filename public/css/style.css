@@ -87,6 +87,7 @@ main {
 
 
 .blogpost,
+.comment,
 .login,
 .signup,
 .new-post,
@@ -128,7 +129,6 @@ label {
 
 .post-header,
 .post-header-link,
-/* .comment-header, */
 .login-header {
     font-size: 24px;
     background-color: var(--black);
@@ -155,7 +155,7 @@ label {
     background-color: var(--lightGray);
     color: var(--black);
     align-items: center; /* align vertically */
-    padding: 3px 16px 3px 18px;
+    padding: 0px 10px 0px 10px;
         
 }
 
@@ -188,13 +188,11 @@ label {
     width: 15px;
 }
 
-.post-content {
+.post-content,
+.comment-content {
     background-color: var(--blueGray);
     color: var(--black);
     padding: 1em;
-    /* padding: 1em 1.2em 1em 1.2em; */
-    /* font-size: 20px; */
-
 }
 
 
@@ -220,16 +218,15 @@ label {
 
 .add-new {
     /* move New Post btn to bottom of page */
-    /* position: relative; */
-    /* bottom: 150px; */
     border-radius: 6px;
 }
 
 .form-input {
     border-color: var(--aqua);
-    border-width: 2px;
-    
+    border-width: 2px;    
 }
+
+/* password toggle */
 .toggle-pass {
     font-size: 16px;
 }
