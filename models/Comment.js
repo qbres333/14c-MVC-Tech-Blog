@@ -29,7 +29,14 @@ Comment.init(
         key: 'id',
       },
     },
-
+    // link the blogpost related to the comment
+    blogpost_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'blogpost',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,

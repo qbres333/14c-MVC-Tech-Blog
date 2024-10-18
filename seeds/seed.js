@@ -3,9 +3,9 @@ const sequelize = require('../config/connection');
 const { User, BlogPost, Comment } = require('../models');
 
 // data to be seeded
-const userData = require('./userData.json');
-const blogData = require('./blogData.json');
-const commentData = require('./comments.json');
+const userData = require('./userDataSeeds.json');
+const blogData = require('./blogDataSeeds.json');
+const commentData = require('./commentDataSeeds.json');
 
 const seedDatabase = async () => {
     // synchronize models with db; drops existing tables to seed a fresh db
@@ -17,20 +17,19 @@ const seedDatabase = async () => {
         // return newly created user records, stored in users array
         returning: true,
     });
+    console.log(users); //test
     
     // create blogpost table
-    for (const blog of blogData) {
-        await BlogPost.create({
-            ...blog,
-        });
-    }
+    const blogs = await BlogPost.bulkCreate(blogData, {
+        returning: true,
+    });
+    console.log(blogs);//test
 
     // create comment table
-    for (const comment of commentData) {
-        await Comment.create({
-            ...comment,
-        })
-    }
+    const comments = await Comment.bulkCreate(commentData, {
+        returning: true
+    });
+    console.log(comments); //test
 
     console.log(`\nData seeded successfully!`);
 
