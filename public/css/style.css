@@ -38,6 +38,7 @@ nav a,
     font-size: 30px;
 
 }
+
 .username {
     margin-right: 40px;
 }
@@ -64,7 +65,7 @@ main {
     flex-grow: 1;
     overflow-y: auto; /* allow scrolling in <main> */
 
-    min-height: calc(100vh - 350px);
+    min-height: calc(100vh - 320px);
     margin: 30px 50px 30px 50px;
     box-sizing: content-box;
 }
@@ -108,8 +109,7 @@ main {
 .post-content,
 .comment-content,
 label {
-    font-size: 20px;
-    
+    font-size: 20px;    
 }
 
 label {
@@ -134,9 +134,9 @@ label {
     background-color: var(--black);
     color: var(--blueGray);
     align-items: center; /* align vertically */
-    padding-left: 16px;
-    
+    padding-left: 16px;    
 }
+
 .comment-header {
     font-size: 24px;
     background-color: var(--black);
@@ -156,6 +156,8 @@ label {
     color: var(--black);
     align-items: center; /* align vertically */
     padding: 0px 10px 0px 10px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
         
 }
 
@@ -248,3 +250,71 @@ footer {
 }
 
 /* add styling for mobile (shrink text) */
+@media (max-width: 1080px) {
+
+    main {
+        min-height: calc(100vh - 250px);
+    }
+
+    .blogpost,
+    .comment,
+    .login,
+    .signup,
+    .new-post,
+    .edit-post,
+    .new-comment,
+    .dash-post {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+
+    .new-post-btn {
+        margin-left: 10em;
+        margin-right: 10em;
+        bottom: 110px;
+    }
+
+    nav a,
+    .username {
+        font-size: 15px;
+    }
+
+    .tech-blog,
+    .your-dash {
+        font-size: 25px;
+    }
+
+    .post-content,
+    .comment-content,
+    label,
+    .toggle-pass {
+        font-size: 10px;
+    }
+
+    .update-btn,
+    .delete-btn,
+    .create-btn,
+    .comment-btn,
+    .post-header,
+    .post-header-link,
+    .login-header,
+    .comment-header,
+    .post-preview,
+    .add-new,
+    .add-comment {
+        font-size: 12px;
+    }
+
+    .comment-header {
+        padding: 0 !important;
+    }
+
+    .post-footer {
+        font-size: 8px;
+    }
+
+    .post-comment {
+        font-size: 9px;
+    }
+
+}
