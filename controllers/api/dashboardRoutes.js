@@ -54,25 +54,33 @@ router.get('/new-post', withAuth, (req, res) => {
 router.get('/update/:id', withAuth, async (req, res) => {
 
   try {
-        const blogData = await BlogPost.findByPk(req.params.id, {
-          where: {
-            user_id: req.session.user_id,
-          },
-          include: [{ model: User }],
-        });
+    // get username to display on blogs view (passed in res.render below)
+    const user = await User.findByPk(req.session.user_id, {
+      attributes: ['username'],
+    });
+    // use optional chaining to access username property
+    const name = user?.username;
 
-        if (!blogData) {
-          return res.status(404).json({ message: 'Blog post not found' });
-        }
+    const blogData = await BlogPost.findByPk(req.params.id, {
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [{ model: User }],
+    });
 
-        const blogpost = blogData.get({ plain: true });
-        // render blogpost view
-        res.render('edit-post', {
-          blogpost: blogpost,
-          logged_in: true,
-        });
+    if (!blogData) {
+      return res.status(404).json({ message: 'Blog post not found' });
+    }
 
-    } catch (err) {
+    const blogpost = blogData.get({ plain: true });
+    // render edit-post.handlebars view
+    res.render('edit-post', {
+      blogpost: blogpost,
+      logged_in: true,
+      name
+    });
+    
+  } catch (err) {
         console.error(err);
         res.status(500).json(err);
     }

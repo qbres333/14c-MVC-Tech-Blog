@@ -1,6 +1,6 @@
 {{!-- single post with section to add a comment --}}
 <div class="row mb-3 mt-1 blogpost" data-id="{{blogpost.id}}">
-    <div class="col-md-12 d-flex post-header justify-content-between">
+    <div class="col-md-12 pt-2 pb-2 pl-3 pr-3 d-flex post-header justify-content-between">
         <div>{{blogpost.title}}</div>
         <div>Posted by {{blogpost.user.username}} on {{format_date blogpost.dateCreated}}</div>
     </div>
@@ -14,11 +14,11 @@
 {{!-- Bootstrap new comment form --}}
 <div class="row d-flex mt-1 new-comment">
     <div class="col-12 d-flex comment-header">  <!-- flex row -->
-        <h3 class="p-1"></h3>
+        <h3 class="p-1">|</h3>
     </div>
 
     <div class="col-12 mb-3 mt-3">  <!-- flex row -->
-        <form class="form new-comment-form">
+        <form class="form new-comment-form" data-blogpost-id="{{blogpost.id}}">
             <div class="form-group">
                 <label for="comment-content" class="form-label">Comment:</label>
                 <textarea class="form-input form-control" rows="5" id="comment-content" name="comment-content"></textarea>

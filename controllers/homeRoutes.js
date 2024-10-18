@@ -44,16 +44,17 @@ router.get('/', async (req, res) => {
     }
 });
 
-// render specific post view (comment view)
-// router.get('/add-comment', withAuth, (res, req) => {
-//     res.render('comment', {
-//         logged_in: true,
-//     });
-// });
 
 // view specific post; add withAuth so only logged in users can post comments
 router.get('/add-comment/:id', withAuth, async (req, res) => {
   try {
+    // get username to display on blogs view (passed in res.render below)
+    const user = await User.findByPk(req.session.user_id, {
+      attributes: ['username'],
+    });
+    // use optional chaining to access username property
+    const name = user?.username;
+
     const blogData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
@@ -75,10 +76,66 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
     res.render('comment', {
       blogpost: blogpost,
       logged_in: true,
+      name
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+// create new comment
+router.post('/add-comment', withAuth, async (req, res) => {
+  try {    
+    const newComment = await Comment.create({
+      comment: req.body.comment,
+      user_id: req.session.user_id, //set user_id to user's id
+      blogpost_id: req.body.blogpost_id,
+    });
+    res.status(200).json(newComment);
+
+  } catch (err) {
+    console.error(err);
+    res.status(400).json(err);
+  }
+});
+
+// render blogpost view (blogpost with comments)
+router.get('/comments/:id', withAuth, async (req, res) => {
+  try {
+    // get username to display on blogs view (passed in res.render below)
+    const user = await User.findByPk(req.session.user_id, {
+      attributes: ['username'],
+    });
+    // use optional chaining to access username property
+    const name = user?.username;
+
+    const blogData = await BlogPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User, attributes: ['username']
+        },
+        {
+          model: Comment
+        },
+      ],
+    })
+
+    if (!blogData) {
+      return res.status(404).json({ message: 'Blog post not found' });
+    }
+
+    const blogpost = blogData.get({ plain: true });
+    // render blogpost.handlebars view
+    res.render('blogpost', {
+      blogpost: blogpost,
+      logged_in: true,
+      name
     });
 
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).json(err);
   }
 });

@@ -1,6 +1,6 @@
 {{!-- single post has comments listed beneath --}}
 <div class="row mb-3 mt-1 blogpost" data-id="{{blogpost.id}}">
-    <div class="col-md-12 d-flex post-header justify-content-between">
+    <div class="col-md-12 pt-2 pb-2 pl-3 pr-3 d-flex post-header justify-content-between">
         <div>{{blogpost.title}}</div>
         <div>Posted by {{blogpost.user.username}} on {{format_date blogpost.dateCreated}}</div>
     </div>
@@ -10,12 +10,13 @@
     
 </div>
 
-{{!-- conditionally render other user comment for the blogpost --}}
-{{#if blogpost.comment.length}}
+
+{{!-- conditionally render user comments for the blogpost --}}
+{{#if blogpost.comments.length}}
     {{#each comments as |comment|}}
     <div class="col-md-12 comment-header justify-content-between"></div>
         <div>Comment from {{blogpost.comment.username}}</div>
-        <div>Post on {{blogpost.comment.dateCreated}}</div>
+        <div>Posted on {{blogpost.comment.dateCreated}}</div>
     </div>
     <div class="col-md-12 post-content"></div>
         <div>{{blogpost.comment.comment}}</div>

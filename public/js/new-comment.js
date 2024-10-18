@@ -1,54 +1,36 @@
-// fetch comment view
-// const fetchCommentView = async (event) => {
-//     const id = event.currentTarget.getAttribute('data-id');
-
-//     try {
-//         const response = await fetch (`/add-comment/${id}`, {
-//             method: 'GET',
-//         });
-
-//         if (response.ok) {
-//             document.location.replace(`/add-comment/${id}`);
-
-//         } else {
-//             alert('Unable to fetch comment view');
-//             console.error(response.statusText);
-//         }
-//     } catch (err) {
-//         alert('Error fetching comment route. Please try again.');
-//         console.error(err);
-//     }
-// };
-
-// // fetch view when button is clicked
-// document.querySelectorAll('.post-header-btn').forEach((headerLink) => {
-//     headerLink.addEventListener('click', fetchCommentView);
-// });
-
-
 //new comment form submission handler
 const newCommentHandler = async (event) => {
-    // event.preventDefault();
-
+    event.preventDefault();
     
     // get value from input
     const comment = document.querySelector("#comment-content").value.trim();
+    const blogpost_id = event.target.getAttribute('data-blogpost-id');
 
     // if comment field has a value
-    if (comment) {
+    if (comment && blogpost_id) {
         try {
-            const response = await fetch(`/api/add-comment/${id}`, {
+            const response = await fetch(`/api/add-comment`, {
               method: 'POST',
-              body: JSON.stringify({ comment }),
+              body: JSON.stringify({ comment, blogpost_id }),
               headers: { 'Content-type': 'application/json' },
             });
 
             if (response.ok) {
                 // if request is successful, redirect to blog post view with comment shown
-                document.location.replace('/api/blogpost')
+                document.location.replace(`/api/comments/${id}`)
+            } else {
+                alert('Failed to create comment. Please try again.');
+                console.error(response.statusText);
             }
-        } catch (err) {}
-    }
+        } catch (err) {
+            alert('An error occurred. Please try again.');
+            console.error(response.statusText);
+        }
 
+    } else {
+    alert('Please enter text in the comment field.');
+    return;
+  }
 }
 
+document.querySelector('.new-comment-form').addEventListener('submit', newCommentHandler);

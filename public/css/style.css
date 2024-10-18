@@ -2,6 +2,7 @@
     --blueGray: #c7ddff;
     --black: black;
     --gray: rgb(116, 116, 116);
+    --lightGray: rgb(180, 180, 180);
     --white: white;
     --aqua: aqua;
 }
@@ -128,7 +129,7 @@ label {
 
 .post-header,
 .post-header-link,
-.comment-header,
+/* .comment-header, */
 .login-header {
     font-size: 24px;
     background-color: var(--black);
@@ -136,6 +137,11 @@ label {
     align-items: center; /* align vertically */
     padding-left: 16px;
     
+}
+.comment-header {
+    font-size: 24px;
+    background-color: var(--black);
+    color: var(--black);
 }
 
 .post-header,
@@ -146,9 +152,11 @@ label {
 
 .post-footer {
     font-size: 16px;
-    background-color: var(--black);
-    color: var(--blueGray);
+    font-weight: 600;
+    background-color: var(--lightGray);
+    color: var(--black);
     align-items: center; /* align vertically */
+    padding: 3px 16px 3px 18px;
         
 }
 
@@ -194,9 +202,11 @@ label {
 .new-post-form,
 .login-form,
 .signup-form,
-.edit-post-form {
+.edit-post-form,
+.new-comment-form {
     padding: 1em;
 }
+
 /* align new-post-btn to bottom of main element, above the footer */
 .new-post-btn {
     margin-left: 35em;
