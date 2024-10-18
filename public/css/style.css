@@ -42,7 +42,7 @@ nav a,
     margin-right: 40px;
 }
 
-/* links */
+/* all links */
 a,
 a:hover,
 a:visited {
@@ -64,8 +64,7 @@ main {
     flex-grow: 1;
     overflow-y: auto; /* allow scrolling in <main> */
 
-    min-height: calc(100vh - 300px);
-    /* min-height: 100vh; */
+    min-height: calc(100vh - 350px);
     margin: 30px 50px 30px 50px;
     box-sizing: content-box;
 }
@@ -250,3 +249,5 @@ footer {
     height: 100px;
     background-color: var(--black);
 }
+
+/* add styling for mobile (shrink text) */
