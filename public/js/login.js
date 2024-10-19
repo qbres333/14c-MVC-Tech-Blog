@@ -22,7 +22,7 @@ const loginFormHandler = async (event) => {
             console.error(response.statusText);
           }
         } catch (err) {
-            alert('An error occurred. Please try again.');
+            alert('Unable to login. Please check your credentials and try again.');
             console.error(err);
         }
 
