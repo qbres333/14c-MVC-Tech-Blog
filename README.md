@@ -26,7 +26,7 @@
 
 ## Key Features
 
-The Tech Blog homepage displays all the blog posts from all users. In order to view the comments associated with a post, post a new comment, or view the dashboard, the user must login or sign up. Once logged in, users can also create new posts, update one of their posts (listed on their dashboard), or delete a post from their dashboard.
+The Tech Blog homepage displays all the blog posts from all users. In order to view the comments associated with a post, post a new comment, or view the dashboard, the user must log in or sign up. Once logged in, users can also create new posts, update one of their posts (listed on their dashboard), or delete a post from their dashboard.
 
 ## Installation
 
@@ -38,7 +38,21 @@ Render deployment:
 GitHub Repository:
 https://github.com/qbres333/14c-MVC-Tech-Blog
 
+## Usage
 
+To use the app locally, the user can do the following:
+    -- right click on 'db' folder and open in the terminal
+    -- enter 'psql -U postgres', then password
+    -- type '\i schema.sql' and press ENTER
+    -- right click on 'server.js' file and open in the terminal
+    -- run the following commands sequentially: npm i, npm run seed, node server.js
+    -- In your browser, go to 'localhost:3001' and enjoy!
+
+![homepage]()
+![add comment page]()
+![dashboard]()
+![new post]()
+![edit post]()
 
 ## Credits
 
