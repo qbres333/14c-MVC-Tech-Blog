@@ -5,7 +5,15 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector('#username-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  // if both fields have values, send POST request to API endpoint (save user data)
+  // add validation for signup inputs
+  if ((username.length < 3 || username.length > 20) || (password.length < 8 || password.length > 20)) {
+    alert(
+      `username must be between 3 and 20 characters long\n\npassword must be between 8 and 20 characters long`
+    );
+    return;
+  }
+
+  // if both fields have valid values, send POST request to API endpoint (save user data)
   if (username && password) {
     try {
       const response = await fetch('/api/user', {
