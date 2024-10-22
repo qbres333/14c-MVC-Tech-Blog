@@ -44,6 +44,15 @@ router.get('/', async (req, res) => {
     }
 });
 
+// GET route for /login to render the view
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        return res.redirect('/dashboard'); //redirect to dash if logged in
+    }
+    // render login.handlebars view
+    res.render('login');
+});
+
 
 // view specific post; add withAuth so only logged in users can post comments
 router.get('/add-comment/:id', withAuth, async (req, res) => {
@@ -86,9 +95,47 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
 
 
 // render dashboard from link on homepage if logged in
-router.get('/dashboard', withAuth, (req, res) => {
-  res.render('dashboard');
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+        // get username to display in dashboard view (passed in res.render below)
+        const user = await User.findByPk(req.session.user_id, {
+          attributes: ['username'],
+        });
+        // use optional chaining to access username property
+        const name = user?.username;
+
+        const blogData = await BlogPost.findAll({
+          // match the user id to the blogpost user_id property
+          where: {
+            user_id: req.session.user_id,
+          },
+          include: [
+            { model: User, attributes: ['username'] },
+          ],
+        });
+        // serialize the data so the template can read it
+        const blogposts = blogData.map((blogpost) =>
+          blogpost.get({ plain: true })
+        );
+        // render dashboard view with all the user's posts
+        res.render('dashboard', {
+          blogposts: blogposts,
+          logged_in: req.session.logged_in,
+          name
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
 });
+
+//render new post view
+router.get('/dashboard/new-post', withAuth, (req, res) => {
+  res.render('new-post', {
+    logged_in: true,
+  });
+});
+
 
 // POST - '/logout' route
 router.post('/logout', (req, res) => {

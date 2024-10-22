@@ -12,6 +12,8 @@ router.post('/', withAuth, async (req, res) => {
             ...req.body,
             user_id: req.session.user_id, //set user_id to user's id
         });
+
+        console.log(16);
         res.status(200).json(newPost);
 
     } catch (err) {

@@ -10,24 +10,11 @@ headerDiv.setAttribute('class', 'your-dash');
 headerDiv.textContent = 'Your Dashboard';
 
 
-const fetchNewPostView = async () => {
-  try {
+const fetchNewPostView = (event) => {
+  event.preventDefault();
     // send request to server
-    const response = await fetch('/api/dashboard/new-post', {
-        method: 'GET'
-    });
-
-    if (response.ok) {
-        document.location.replace('/api/dashboard/new-post');
-    } else {
-        alert('Unable to fetch new post view');
-        console.error(response.statusText);
-    }
-    
-  } catch (err) {
-    alert('Error fetching new post route. Please try again.');
-    console.error(err);
-  }
+      // when replacing, remove api
+        document.location.replace('/dashboard/new-post');
 };
 
 document
@@ -40,12 +27,12 @@ const fetchEditPostView = async (event) => {
   const id = event.currentTarget.getAttribute('data-id');
 
   try {
-    const response = await fetch(`/api/dashboard/update/${id}`, {
+    const response = await fetch(`/dashboard/update/${id}`, {
       method: 'GET',
     });
 
     if (response.ok) {
-      document.location.replace(`/api/dashboard/update/${id}`);
+      document.location.replace(`/dashboard/update/${id}`);
   
     } else {
       alert('Unable to fetch edit-post view');

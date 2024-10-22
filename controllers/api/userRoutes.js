@@ -57,14 +57,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// GET route for /login to render the view
-router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
-        return res.redirect('/dashboard'); //redirect to dash if logged in
-    }
-    // render login.handlebars view
-    res.render('login');
-});
 
 // POST - '/logout' route
 router.post('/logout', (req, res) => {
