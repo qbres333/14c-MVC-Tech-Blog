@@ -4,10 +4,6 @@ const { User } = require('../../models');
 
 // '/api/user' endpoint
 
-// render signup view
-router.get('/signup', (req, res) => {
-        res.render('signup');
-})
 
 // POST - '/signup' route, send new user info to db
 router.post('/', async (req, res) => {
@@ -69,10 +65,5 @@ router.post('/logout', (req, res) => {
     }
 });
 
-//render homepage when logged out
-// router.get('/logout', (req, res) => {
-//         res.render('homepage');
-    
-// });
 
 module.exports = router;

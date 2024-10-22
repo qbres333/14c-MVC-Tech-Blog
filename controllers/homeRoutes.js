@@ -129,6 +129,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 });
 
+// render signup view
+router.get('/signup', (req, res) => {
+        res.render('signup');
+})
+
 //render new post view
 router.get('/dashboard/new-post', withAuth, (req, res) => {
   res.render('new-post', {

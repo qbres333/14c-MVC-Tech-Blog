@@ -24,7 +24,7 @@ const signupFormHandler = async (event) => {
 
       if (response.ok) {
         // if request is successful, redirect to the dashboard
-        document.location.replace('/api/dashboard');
+        document.location.replace('/dashboard');
       } else {
         alert('User already exists. Please check your spelling, or log in to The Tech Blog.')
         console.error(response.statusText);
