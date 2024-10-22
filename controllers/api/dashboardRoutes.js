@@ -4,44 +4,7 @@ const { BlogPost, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // '/api/dashboard' endpoint
-
-
-// render edit-post view 
-router.get('/update/:id', withAuth, async (req, res) => {
-
-  try {
-    // get username to display on blogs view (passed in res.render below)
-    const user = await User.findByPk(req.session.user_id, {
-      attributes: ['username'],
-    });
-    // use optional chaining to access username property
-    const name = user?.username;
-
-    const blogData = await BlogPost.findByPk(req.params.id, {
-      where: {
-        user_id: req.session.user_id,
-      },
-      include: [{ model: User }],
-    });
-
-    if (!blogData) {
-      return res.status(404).json({ message: 'Blog post not found' });
-    }
-
-    const blogpost = blogData.get({ plain: true });
-    // render edit-post.handlebars view
-    res.render('edit-post', {
-      blogpost: blogpost,
-      logged_in: true,
-      name
-    });
-
-  } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
-    }
-
-});
+// create CRUD (post, put, delete) operations in api routes
 
 // update a specific post
 router.put('/update/:id', withAuth, async (req, res) => {

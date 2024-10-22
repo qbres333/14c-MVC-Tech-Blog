@@ -26,8 +26,6 @@ router.get('/', async (req, res) => {
           },
         ],
       });
-    //   test
-    console.log(blogData);
 
       // serialize the data so the template can read it
       const blogposts = blogData.map((blogpost) =>
@@ -53,8 +51,51 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+// render blogpost view (shows post and all related comments)
+router.get('/comments/:id', withAuth, async (req, res) => {
+  try {
+    // get username to display on blogs view (passed in res.render below)
+    const user = await User.findByPk(req.session.user_id, {
+      attributes: ['username'],
+    });
+    // use optional chaining to access username property
+    const name = user?.username;
 
-// view specific post; add withAuth so only logged in users can post comments
+    const blogData = await BlogPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        {
+          model: Comment,
+          include: {
+            model: User, //include user who posted the comment
+            attributes: ['username'],
+          },
+        },
+      ],
+      order: [['dateCreated', 'DESC']],
+    });
+
+    if (!blogData) {
+      return res.status(404).json({ message: 'Blog post not found' });
+    }
+
+    const blogpost = blogData.get({ plain: true });
+    // render blogpost.handlebars view
+    res.render('blogpost', {
+      blogpost: blogpost,
+      logged_in: true,
+      name,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+// view specific post to add comment; only logged in users can add comments
 router.get('/add-comment/:id', withAuth, async (req, res) => {
   try {
     // get username to display on blogs view (passed in res.render below)
@@ -128,6 +169,41 @@ router.get('/dashboard', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// render edit-post view 
+router.get('/dashboard/update/:id', withAuth, async (req, res) => {
+  try {
+    // get username to display on blogs view (passed in res.render below)
+    const user = await User.findByPk(req.session.user_id, {
+      attributes: ['username'],
+    });
+    // use optional chaining to access username property
+    const name = user?.username;
+
+    const blogData = await BlogPost.findByPk(req.params.id, {
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [{ model: User }],
+    });
+
+    if (!blogData) {
+      return res.status(404).json({ message: 'Blog post not found' });
+    }
+
+    const blogpost = blogData.get({ plain: true });
+    // render edit-post.handlebars view
+    res.render('edit-post', {
+      blogpost: blogpost,
+      logged_in: true,
+      name,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 
 // render signup view
 router.get('/signup', (req, res) => {

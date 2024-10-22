@@ -11,7 +11,7 @@ const newCommentHandler = async (event) => {
   // if comment & blogpost_id has a value
   if (comment && blogpost_id) {
     try {
-      const response = await fetch(`/api/new-comment`, {
+      const response = await fetch(`/api/add-comment`, {
         method: 'POST',
         body: JSON.stringify({ comment, blogpost_id }),
         headers: { 'Content-type': 'application/json' },
@@ -19,7 +19,7 @@ const newCommentHandler = async (event) => {
 
       if (response.ok) {
         // if request is successful, redirect to blog post view with comment shown
-        document.location.replace(`/api/comments/${blogpost_id}`);
+        document.location.replace(`/comments/${blogpost_id}`);
       } else {
         alert('Failed to create comment. Please try again.');
         console.error(response.statusText);
