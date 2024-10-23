@@ -4,9 +4,10 @@ const loginFormHandler = async (event) => {
     // get values from the login inputs
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-
+    
     // if both fields have values, send POST request to API endpoint
     if (username && password) {
+      // const url = window.location.origin;
       const response = await fetch('/api/user/login', {
         method: 'POST',
         body: JSON.stringify({ username, password }),
@@ -14,7 +15,7 @@ const loginFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        // if request is successful, redirect to the user's dashboard (route)
+        // if request is successful, redirect to the user's dashboard (route)        
         document.location.replace('/dashboard');
       } else {
         alert(
