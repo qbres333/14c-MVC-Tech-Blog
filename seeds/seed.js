@@ -17,19 +17,16 @@ const seedDatabase = async () => {
         // return newly created user records, stored in users array
         returning: true,
     });
-    console.log(users); //test
     
     // create blogpost table
     const blogs = await BlogPost.bulkCreate(blogData, {
         returning: true,
     });
-    console.log(blogs);//test
 
     // create comment table
     const comments = await Comment.bulkCreate(commentData, {
         returning: true
     });
-    console.log(comments); //test
 
     console.log(`\nData seeded successfully!`);
 
