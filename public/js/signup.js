@@ -28,9 +28,15 @@ const signupFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        // if request is successful, redirect to the dashboard
-        document.location.replace('/dashboard');
-        return;
+        const data = await response.json();
+        if (data.message) {
+          alert(data.message);
+          return;
+        } else {
+          // if request is successful, redirect to the user's dashboard (route)
+          document.location.replace('/dashboard');
+          return;
+        }
       } else {
         alert(
           'User already exists. Please check your spelling, or log in to The Tech Blog.'
