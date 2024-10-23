@@ -1,11 +1,10 @@
 // deletion handler: send DELETE request to API if user clicks delete
 const deletePostHandler = async (event) => {
   event.preventDefault();
-  
-  try {
-      const id = event.target.getAttribute('data-id');
-      
-      // CHANGE ROUTE if needed
+
+  const id = event.currentTarget.getAttribute('data-blog-id');
+
+  try {           
       const response = await fetch(`/api/dashboard/update/${id}`, {
         method: 'DELETE',
       });
@@ -27,5 +26,5 @@ const deletePostHandler = async (event) => {
 
 // update bloglist on dashboard upon submit
 document
-  .querySelector('.edit-post-form')
-  .addEventListener('submit', deletePostHandler);
+  .querySelector('.delete-btn')
+  .addEventListener('click', deletePostHandler);

@@ -7,7 +7,7 @@ headerDiv.textContent = 'Your Dashboard';
 const fetchNewPostView = (event) => {
   event.preventDefault();
     // send request to server
-      // when replacing, remove api
+      // when replacing URL, remove api
         document.location.replace('/dashboard/new-post');
 };
 
