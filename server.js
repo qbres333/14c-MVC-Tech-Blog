@@ -19,22 +19,23 @@ const hbs = exphbs.create({ helpers });
 
 //session cookie setup
 const sess = {
-    // secret key used to sign/encrypt session cookies
-    secret: 'secret',
-    // configure the session cookie
-    cookie: {
-        maxAge: 3600000, //30 minutes
-        httpOnly: true, //prevents cookie from being accessed by JS (XSS)
-        secure: false, //data can be sent over http and https
-        sameSite: 'strict',
-        domain: 'localhost'
-    },
-    resave: false, //avoid unnecessary db updates
-    saveUninitialized: true, //save new sessions that may not have associated data
-    // db is the sequelize connection object to be used for storing session data
-    store: new SequelizeStore({
-        db: sequelize
-    })
+  // secret key used to sign/encrypt session cookies
+  secret: 's123e735c2324r9897e79886t',
+  // configure the session cookie
+  cookie: {
+    maxAge: 3600000, //60 minutes
+    httpOnly: true, //prevents cookie from being accessed by JS (XSS)
+    // secure: false, //data can be sent over http and https
+    secure: true,
+    sameSite: 'strict',
+    // domain: 'localhost'
+  },
+  resave: false, //avoid unnecessary db updates
+  saveUninitialized: true, //save new sessions that may not have associated data
+  // db is the sequelize connection object to be used for storing session data
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 // set up session middleware
