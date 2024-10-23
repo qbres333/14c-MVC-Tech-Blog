@@ -1,7 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  try {
-    //
+  try {    
     // get values from the login inputs
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
@@ -26,11 +25,10 @@ const loginFormHandler = async (event) => {
     } else {
       alert('Please enter both a username and password');
     }
-  } catch (err) {
-    //
+  } catch (err) {    
     alert('Unable to login. Please check your credentials and try again.');
     console.error(err);
-  } //
+  } 
 }
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
