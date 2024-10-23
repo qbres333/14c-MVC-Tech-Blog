@@ -10,7 +10,7 @@ if (process.env.DB_URL) {
         process.env.DB_USER,
         process.env.DB_PASSWORD,
         {
-            host: 'localhost',
+            // host: 'localhost',
             dialect: 'postgres',
             logging: console.log,
             benchmark: true
