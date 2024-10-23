@@ -25,7 +25,7 @@ const sess = {
     cookie: {
         maxAge: 1800000, //30 minutes
         httpOnly: true, //prevents cookie from being accessed by JS (XSS)
-        secure: false, //data can be sent over http and https
+        secure: true, //data can be sent over http and https
         sameSite: 'strict',
         domain: 'localhost'
     },
