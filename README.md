@@ -80,9 +80,6 @@ https://handlebarsjs.com/guide/
 Express Routing:
 https://expressjs.com/en/guide/routing.html
 
-URL handling for login/signup (withAuth.js):
-https://www.geeksforgeeks.org/express-js-req-originalurl-property/
-
 ## License
 
 MIT License - see the LICENSE file for details.

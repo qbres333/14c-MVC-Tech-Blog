@@ -1,7 +1,7 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  try {
+  // try {
     // get values from the signup inputs
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
@@ -41,10 +41,10 @@ const signupFormHandler = async (event) => {
       alert('Please enter both a username and password');
       return;
     }
-  } catch (err) {    
-    alert('An error occurred. Please try again.');
-    console.error(err);
-  } 
+  // } catch (err) {    
+  //   alert('An error occurred. Please try again.');
+  //   console.error(err);
+  // } 
 };
 
 document
