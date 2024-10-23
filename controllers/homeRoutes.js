@@ -44,12 +44,15 @@ router.get('/', async (req, res) => {
 
 // GET route for /login to render the view
 router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
-        return res.redirect('/dashboard'); //redirect to dash if logged in
-    }
-    // render login.handlebars view
     res.render('login');
 });
+
+
+// render signup view
+router.get('/signup', (req, res) => {
+        res.render('signup');
+})
+
 
 // render blogpost view (shows post and all related comments)
 router.get('/comments/:id', withAuth, async (req, res) => {
@@ -204,11 +207,6 @@ router.get('/dashboard/update/:id', withAuth, async (req, res) => {
   }
 });
 
-
-// render signup view
-router.get('/signup', (req, res) => {
-        res.render('signup');
-})
 
 //render new post view
 router.get('/dashboard/new-post', withAuth, (req, res) => {
