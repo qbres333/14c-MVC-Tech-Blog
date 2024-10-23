@@ -14,15 +14,9 @@ const loginFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        const data = await response.json()
-        if(data.message) {
-          alert(data.message);
-          return;
-        } else {
-          // if request is successful, redirect to the user's dashboard (route)
-          document.location.replace('/dashboard');
-          return;
-        }
+        // if request is successful, redirect to the user's dashboard (route)
+        document.location.replace('/dashboard');
+        return;
       } else {
         alert(
           'Login failed. Please check your spelling, or sign up to The Tech Blog.'
