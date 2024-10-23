@@ -26,9 +26,9 @@ const sess = {
     maxAge: 3600000, //60 minutes
     httpOnly: true, //prevents cookie from being accessed by JS (XSS)
     // secure: false, //data can be sent over http and https
-    secure: true,
+    secure: false,
     sameSite: 'strict',
-    // domain: 'localhost'
+    domain: 'localhost'
   },
   resave: false, //avoid unnecessary db updates
   saveUninitialized: true, //save new sessions that may not have associated data
