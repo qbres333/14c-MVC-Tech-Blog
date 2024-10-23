@@ -44,13 +44,13 @@ router.get('/', async (req, res) => {
 
 // GET route for /login to render the view
 router.get('/login', (req, res) => {
-    res.render('login');
+  res.render('login');
 });
 
 
 // render signup view
 router.get('/signup', (req, res) => {
-        res.render('signup');
+  res.render('signup');
 })
 
 

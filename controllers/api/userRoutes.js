@@ -5,7 +5,7 @@ const { User } = require('../../models');
 // '/api/user' endpoint
 
 
-// POST - '/signup' route, send new user info to db
+// POST - '/signup' route, send new user info to db & save data in session cookie
 router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -21,7 +21,7 @@ router.post('/signup', async (req, res) => {
     }
 })
 
-// POST - '/login' route to evaluate form data
+// POST - '/login' route to evaluate form data & save data in session cookie
 router.post('/login', async (req, res) => {
     try {
         // find user in db by username
