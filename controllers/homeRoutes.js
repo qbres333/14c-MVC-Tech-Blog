@@ -164,7 +164,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         // render dashboard view with all the user's posts
         res.render('dashboard', {
           blogposts: blogposts,
-          logged_in: req.session.logged_in,
+          logged_in: true,
           name
         });
     } catch (err) {
