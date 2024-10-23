@@ -30,7 +30,7 @@ const signupFormHandler = async (event) => {
       if (response.ok) {
         // if request is successful, redirect to the user's dashboard (route)
         document.location.replace('/dashboard');
-        return;
+        // return;
       } else {
         alert(
           'User already exists. Please check your spelling, or log in to The Tech Blog.'
@@ -39,7 +39,7 @@ const signupFormHandler = async (event) => {
       }
     } else {
       alert('Please enter both a username and password');
-      return;
+      // return;
     }
   // } catch (err) {    
   //   alert('An error occurred. Please try again.');
