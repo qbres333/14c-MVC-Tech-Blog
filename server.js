@@ -20,7 +20,7 @@ const hbs = exphbs.create({ helpers });
 //session cookie setup
 const sess = {
   // secret key used to sign/encrypt session cookies
-  secret: 's123e735c2324r9897e79886t',
+  secret: process.env.SECRET,
   // configure the session cookie
   cookie: {
     maxAge: 3600000, //60 minutes
@@ -28,7 +28,7 @@ const sess = {
     // secure: false, //data can be sent over http and https
     secure: false,
     sameSite: 'strict',
-    domain: 'localhost'
+    // domain: 'localhost'
   },
   resave: false, //avoid unnecessary db updates
   saveUninitialized: true, //save new sessions that may not have associated data
