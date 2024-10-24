@@ -5,10 +5,4 @@ module.exports = {
         return date.toLocaleDateString();
     },
 
-    // // helper to convert TEXT to string for blogpost.content
-    // format_content: (content) => {
-    //     return content.toString();
-    // }
-    
-
 }

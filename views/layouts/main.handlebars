@@ -19,7 +19,6 @@
                 <a href="/" id="homepage">Home</a>
                 <a href="/dashboard" id="dashboard">Dashboard</a>
                 <a href="/logout" id="logout">Logout</a>
-                {{!-- <a href="#" id="logout">Logout</a> --}}
                 {{else}}
                 <a href="/" id="homepage">Home</a>
                 <a href="/dashboard" id="dashboard">Dashboard</a>
@@ -48,7 +47,7 @@
 
     <footer></footer>
 
-    {{!-- render script if user is logged in --}}
+    {{!-- execute script if user is logged in --}}
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}

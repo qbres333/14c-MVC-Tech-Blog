@@ -25,10 +25,9 @@ const sess = {
   cookie: {
     maxAge: 3600000, //60 minutes
     httpOnly: true, //prevents cookie from being accessed by JS (XSS)
-    // secure: false, //data can be sent over http and https
-    secure: false,
+    secure: false, //data can be sent over http and https
     sameSite: 'strict',
-    // domain: 'localhost'
+    // domain: 'localhost' //removed based on research; Render doesn't work when this is set to localhost
   },
   resave: false, //avoid unnecessary db updates
   saveUninitialized: true, //save new sessions that may not have associated data
