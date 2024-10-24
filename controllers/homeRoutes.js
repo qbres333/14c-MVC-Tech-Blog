@@ -141,6 +141,7 @@ router.get('/add-comment/:id', withAuth, async (req, res) => {
 // render dashboard from link on homepage if logged in
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
+        console.log(144, req.session.user_id);
         // get username to display in dashboard view (passed in res.render below)
         const user = await User.findByPk(req.session.user_id, {
           attributes: ['username'],
